@@ -1,6 +1,6 @@
 <template>
   <b-container-fluid>
-    <b-row>
+    <b-row class="bg-pricing">
       <b-col class="m-2 text-primary">
         <div
           class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"
@@ -125,5 +125,9 @@ export default {};
 
 .subtitle-fluid {
   font-size: 1vw !important;
+}
+
+.bg-pricing {
+  background-color: #f9f9f9;
 }
 </style>

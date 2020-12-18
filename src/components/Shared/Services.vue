@@ -1,6 +1,6 @@
 <template>
   <b-container-fluid>
-    <b-row class=" bg-services">
+    <b-row class="bg-services">
       <b-col class="m-2">
         <div
           class="services-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"
@@ -79,7 +79,7 @@
       </b-col>
     </b-row>
     <b-row class=" bg-services">
-      <b-col class="m-2">
+      <b-col class="my-2">
         <b-card body-class="text-primary text-center">
           <b-card-text class="m-3">
             All these for a single affordable monthly/annual subscription
@@ -106,6 +106,7 @@ export default {};
 .text-fluid {
   font-size: 1vw !important;
 }
+
 .bg-services {
   background-color: #f9f9f9;
 }

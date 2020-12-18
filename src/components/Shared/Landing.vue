@@ -19,7 +19,7 @@
           </b-col>
         </b-card>
       </b-col>
-      <b-col cols="12" md="5" class="p-5">
+      <b-col cols="12" md="5" class="p-5 text-primary">
         <b-form @submit="onSubmit" @reset="onReset" v-if="show">
           <p class="col-9 text-break font-weight-bold pb-4">
             Enter your name and email to get started
