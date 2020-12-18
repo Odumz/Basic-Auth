@@ -1,17 +1,17 @@
 <template>
   <b-container-fluid>
-    <b-row>
+    <b-row class=" bg-services">
       <b-col class="m-2">
         <div
-          class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"
+          class="services-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"
         >
           <b-card-text
-            style="font-size:5vw;"
+            style="font-size:3vw;"
             class="my-1 text-primary font-weight-bold"
             >What We Offer</b-card-text
           >
         </div>
-        <b-card-group deck class="m-4 text-center">
+        <b-card-group deck class="m-4 text-center text-primary">
           <b-card
             img-src="https://picsum.photos/300/300/?image=41"
             img-alt="Image"
@@ -78,6 +78,15 @@
         </b-card-group>
       </b-col>
     </b-row>
+    <b-row class=" bg-services">
+      <b-col class="m-2">
+        <b-card body-class="text-primary text-center">
+          <b-card-text class="m-3">
+            All these for a single affordable monthly/annual subscription
+          </b-card-text>
+        </b-card>
+      </b-col>
+    </b-row>
   </b-container-fluid>
 </template>
 
@@ -86,15 +95,18 @@ export default {};
 </script>
 
 <style scoped>
-.pricing-header {
+.services-header {
   max-width: 700px;
 }
 
 .title-fluid {
-  font-size: 2vw !important;
+  font-size: 1.6vw !important;
 }
 
 .text-fluid {
   font-size: 1vw !important;
+}
+.bg-services {
+  background-color: #f9f9f9;
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
   <b-container-fluid>
     <b-row>
-      <b-col class="m-2">
+      <b-col class="m-2 text-primary">
         <div
           class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"
         >
           <b-card-text
-            style="font-size:5vw;"
+            style="font-size:3vw;"
             class="my-1 text-primary font-weight-bold"
             >Pricing</b-card-text
           >
@@ -124,6 +124,6 @@ export default {};
 }
 
 .subtitle-fluid {
-  font-size: 1.5vw !important;
+  font-size: 1vw !important;
 }
 </style>
