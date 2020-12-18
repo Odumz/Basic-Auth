@@ -88,7 +88,4 @@ export default {
 .v-application a {
   color: white;
 }
-.signup {
-  color: #4a4edd !important;
-}
 </style>

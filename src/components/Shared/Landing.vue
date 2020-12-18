@@ -7,16 +7,16 @@
           img-src="https://res.cloudinary.com/griffintech/image/upload/v1608201552/samples/pexels-jopwell-2422280_sze4ek.jpg"
           img-alt="Card image"
           img-fluid-grow
-          img-width="90%"
           text-variant="white"
-        >
-          <b-card-title class="p-3 mt-5 font-weight-bold col-9 h1 text-break">
-            EDC Smarter Business Program
-          </b-card-title>
-          <b-card-text class="col-10 text-break px-3">
-            Premium SME Support featuring remotely-delivered business/funding
-            advisory, learning & technology support.
-          </b-card-text>
+          ><b-col align-self="center" class="m-3 pt-4">
+            <b-card-title class="p-3 mt-5 font-weight-bold col-8 h1 text-break">
+              EDC Smarter Business Program
+            </b-card-title>
+            <b-card-text class="col-10 text-break p-3">
+              Premium SME Support featuring remotely-delivered business/funding
+              advisory, learning & technology support.
+            </b-card-text>
+          </b-col>
         </b-card>
       </b-col>
       <b-col cols="12" md="5" class="p-5">
@@ -30,6 +30,7 @@
             :valid-feedback="validFeedback.name"
             :invalid-feedback="invalidFeedback.name"
             :state="state"
+            class="my-4"
           >
             <b-form-input
               id="name"
@@ -45,6 +46,7 @@
             :valid-feedback="validFeedback.email"
             :invalid-feedback="invalidFeedback.email"
             :state="state"
+            class="my-4"
           >
             <b-form-input
               id="email"
