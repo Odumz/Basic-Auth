@@ -3,13 +3,18 @@ import Router from "vue-router";
 
 // view routes
 import Home from "./views/Shared/Home.vue";
-import Error from "./views/Shared/Errors/Error.vue";
+import Errors from "./views/Shared/Errors/Error.vue";
 import Login from "./views/Shared/Auth/Login.vue";
 import ForgotPassword from "./views/Shared/Auth/ForgotPassword.vue";
 import ResetPassword from "./views/Shared/Auth/ResetPassword.vue";
 import Menu from "./views/Shared/Menu/Menu.vue";
+import CreateBusiness from "./views/Auth/SME/CreateBusiness.vue";
+import CreateConsultant from "./views/Auth/Consultants/CreateConsultant.vue";
+import Inbox from "./components/Dashboard/Shared/Inbox.vue";
+import Notifications from "./components/Dashboard/Shared/Notifications.vue";
 
 // component routes
+import Dashboard from "./components/Dashboard/Shared/Dashboard.vue";
 
 Vue.use(Router);
 
@@ -55,26 +60,21 @@ const routes = [
         name: "user-dashboard"
       },
       {
+        path: "/dashboard/notifications",
+        component: Notifications,
+        name: "notifications"
+      },
+      {
         path: "/dashboard/inbox",
         component: Inbox,
         name: "inbox"
-      },
-      {
-        path: "/dashboard/projects",
-        component: Projects,
-        name: "project"
-      },
-      {
-        path: "/dashboard/verification",
-        component: Verification,
-        name: "verification"
       }
     ]
   },
   {
     path: "*",
     name: "NotFound",
-    component: Error
+    component: Errors
   }
 ];
 

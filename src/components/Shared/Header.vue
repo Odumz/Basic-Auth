@@ -1,56 +1,60 @@
 <template>
   <div class="font-sans fixed antialiased w-full bg-white z-10" id="app">
-    <nav class="flex items-center justify-between flex-wrap py-2 px-8">
-      <div class="flex items-center flex-no-shrink text-white mr-6">
-        <router-link to="/">
-          <div class="flex items-center flex-no-shrink text-black mr-6">
-            <img
-              class="inline m-1 my-img"
-              src="https://res.cloudinary.com/dldd8ucby/image/upload/v1587851649/cerebro/cerebrologo_2x.png"
-            />
-          </div>
-        </router-link>
-      </div>
-      <div class="block lg:hidden">
-        <button
-          @click="toggle"
-          class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light"
-        >
-          <svg
-            class="fill-current h-3 w-3"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
-        </button>
-      </div>
-      <div
-        :class="open ? 'block' : 'hidden'"
-        class="w-full flex-grow lg:flex sm:items-center lg:w-auto"
-      >
-        <div class="text-sm lg:flex-grow"></div>
-        <div>
-          <router-link
-            to="/auth/register"
-            class="block bg-cerebro-purple px-4 py-2 rounded text-lg mt-4 lg:inline-block nav-button  lg:mt-0 mr-4"
-            >Get Started</router-link
-          >
-          <router-link
-            to="/auth/login"
-            class="block bg-cerebro-purple px-4 py-2 rounded text-lg mt-4 lg:inline-block nav-button  lg:mt-0 mr-4"
-            >Login</router-link
-          >
-        </div>
-      </div>
-    </nav>
+    <b-navbar toggleable="lg" type="dark" variant="primary">
+      <b-navbar-brand href="/">
+        <img src="https://placekitten.com/g/30/30" alt="Kitten" />
+      </b-navbar-brand>
 
-    <!-- <vue-element-loading
-      v-if="loading"
-      :active="loading"
-      :is-full-screen="true"
-    /> -->
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+        <!-- <b-navbar-nav>
+          <b-nav-item href="#">Link</b-nav-item>
+          <b-nav-item href="#" disabled>Disabled</b-nav-item>
+        </b-navbar-nav> -->
+
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="ml-auto">
+          <b-navbar-nav class="mr-5" v-if="isLoggedIn == false">
+            <!-- <b-nav-item href="#">Notifications</b-nav-item> -->
+            <b-nav-item href="#">Get Started</b-nav-item>
+            <b-nav-item href="#">Sign In</b-nav-item>
+          </b-navbar-nav>
+
+          <b-navbar-nav class="mr-5" v-else>
+            <b-nav-item href="#">Notifications</b-nav-item>
+            <b-nav-item href="#">Profile</b-nav-item>
+            <b-nav-item href="#">Log Out</b-nav-item>
+          </b-navbar-nav>
+          <!-- <b-nav-form>
+            <b-form-input
+              size="sm"
+              class="mr-sm-2"
+              placeholder="Search"
+            ></b-form-input>
+            <b-button size="sm" class="my-2 my-sm-0" type="submit"
+              >Search</b-button
+            >
+          </b-nav-form> -->
+
+          <!-- <b-nav-item-dropdown text="Lang" right>
+            <b-dropdown-item href="#">EN</b-dropdown-item>
+            <b-dropdown-item href="#">ES</b-dropdown-item>
+            <b-dropdown-item href="#">RU</b-dropdown-item>
+            <b-dropdown-item href="#">FA</b-dropdown-item>
+          </b-nav-item-dropdown> -->
+
+          <!-- <b-nav-item-dropdown right> -->
+          <!-- Using 'button-content' slot -->
+          <!-- <template #button-content>
+              <em>User</em>
+            </template>
+            <b-dropdown-item href="#">Profile</b-dropdown-item>
+            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+          </b-nav-item-dropdown> -->
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
   </div>
 </template>
 
@@ -59,7 +63,8 @@ export default {
   components: {},
   data() {
     return {
-      open: false
+      open: false,
+      isLoggedIn: false
     };
   },
   methods: {

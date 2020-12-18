@@ -1,17 +1,20 @@
 <template>
-  <div id="app">
+  <!-- <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+    <HelloWorld msg="Welcome to our Vue.js App" />
+  </div> -->
+  <v-app>
+    <router-view></router-view>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+// import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
   name: "App",
-  components: {
-    HelloWorld
+  mounted() {
+    // HelloWorld
   }
 };
 </script>
@@ -22,7 +25,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: hsl(210, 29%, 24%);
+  margin-top: 0px;
+  max-width: 100vw;
+  overflow-y: hidden;
 }
 </style>
