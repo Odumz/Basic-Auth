@@ -10,11 +10,12 @@ import ResetPassword from "./views/Shared/Auth/ResetPassword.vue";
 import Menu from "./views/Shared/Menu/Menu.vue";
 import CreateBusiness from "./views/Auth/SME/CreateBusiness.vue";
 import CreateConsultant from "./views/Auth/Consultants/CreateConsultant.vue";
-import Inbox from "./components/Dashboard/Shared/Inbox.vue";
-import Notifications from "./components/Dashboard/Shared/Notifications.vue";
 
 // component routes
 import Dashboard from "./components/Dashboard/Shared/Dashboard.vue";
+import Inbox from "./components/Dashboard/Shared/Inbox.vue";
+import Notifications from "./components/Dashboard/Shared/Notifications.vue";
+import Settings from "./components/Dashboard/Shared/Settings.vue";
 
 Vue.use(Router);
 
@@ -50,6 +51,11 @@ const routes = [
     component: CreateConsultant
   },
   {
+    path: "/dashboard/settings",
+    component: Settings,
+    name: "temp-settings"
+  },
+  {
     path: "/dashboard",
     name: "me",
     component: Menu,
@@ -68,6 +74,11 @@ const routes = [
         path: "/dashboard/inbox",
         component: Inbox,
         name: "inbox"
+      },
+      {
+        path: "/dashboard/settings",
+        component: Settings,
+        name: "settings"
       }
     ]
   },

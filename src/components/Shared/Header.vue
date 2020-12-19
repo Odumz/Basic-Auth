@@ -1,8 +1,17 @@
 <template>
   <div class="font-sans fixed antialiased w-full bg-white z-10" id="app">
-    <b-navbar toggleable="lg" type="dark" variant="primary">
+    <b-navbar
+      toggleable="lg"
+      type="dark"
+      variant="primary"
+      class="p-1 fixed-top"
+    >
       <b-navbar-brand href="/">
-        <img src="https://placekitten.com/g/30/30" alt="Kitten" />
+        <img
+          src="https://res.cloudinary.com/griffintech/image/upload/v1608320860/nand2jvb7zrhslhenmzk_xsannf.jpg"
+          alt="EDC Marketplace"
+          width="35%"
+        />
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>

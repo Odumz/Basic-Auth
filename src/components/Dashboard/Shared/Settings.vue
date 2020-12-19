@@ -1,24 +1,6 @@
 <template>
   <b-container-fluid class="main-body">
     <b-row align-v="center" class="flex justify-content-center pt-5">
-      <b-col cols="12" md="7">
-        <b-card
-          overlay
-          img-src="https://res.cloudinary.com/griffintech/image/upload/v1608201552/samples/pexels-jopwell-2422280_sze4ek.jpg"
-          img-alt="Card image"
-          img-fluid-grow
-          text-variant="white"
-          ><b-col align-self="center" class="m-3 pt-4">
-            <b-card-title class="p-3 mt-5 font-weight-bold col-8 h1 text-break">
-              EDC Smarter Business Program
-            </b-card-title>
-            <b-card-text class="col-10 text-break p-3">
-              Premium SME Support featuring remotely-delivered business/funding
-              advisory, learning & technology support.
-            </b-card-text>
-          </b-col>
-        </b-card>
-      </b-col>
       <b-col cols="12" md="5" class="p-5 text-primary">
         <b-form @submit="onSubmit" @reset="onReset">
           <p class="col-9 text-break lead font-weight-bold pb-4">

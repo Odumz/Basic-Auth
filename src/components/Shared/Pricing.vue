@@ -34,8 +34,7 @@
             <b-button
               block
               size="lg"
-              variant="primary"
-              class="my-4 text-fluid font-weight-bold"
+              class="bg-primary my-4 text-fluid font-weight-bold"
               >Get Started</b-button
             >
           </b-card>
@@ -91,8 +90,7 @@
             <b-button
               block
               size="lg"
-              variant="primary"
-              class="my-4 text-fluid font-weight-bold"
+              class="bg-primary my-4 text-fluid font-weight-bold"
               >Get Started</b-button
             >
           </b-card>
