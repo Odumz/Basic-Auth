@@ -13,9 +13,11 @@ import CreateConsultant from "./views/Auth/Consultants/CreateConsultant.vue";
 
 // component routes
 import Dashboard from "./components/Dashboard/Shared/Dashboard.vue";
+import Profile from "./components/Dashboard/Shared/Profile";
 import Inbox from "./components/Dashboard/Shared/Inbox.vue";
 import Notifications from "./components/Dashboard/Shared/Notifications.vue";
 import Settings from "./components/Dashboard/Shared/Settings.vue";
+import SettingsTwo from "./components/Dashboard/Shared/Settings_two.vue";
 
 Vue.use(Router);
 
@@ -54,6 +56,16 @@ const routes = [
     path: "/dashboard/settings",
     component: Settings,
     name: "temp-settings"
+  },
+  {
+    path: "/dashboard/settings_two",
+    component: SettingsTwo,
+    name: "temp-settings-two"
+  },
+  {
+    path: "/dashboard/profile",
+    component: Profile,
+    name: "temp-profile"
   },
   {
     path: "/dashboard",

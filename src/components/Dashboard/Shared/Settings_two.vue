@@ -5,40 +5,45 @@
         <b-text class="display-4 mb-4 font-weight-bolder">Settings</b-text>
       </b-col> -->
       <b-col class="p-5 text-primary col-md-4 order-md-2 mb-4">
-        <b-text class="lead font-weight-bold">Availability</b-text>
-        <b-form-group class="my-2 pb-4" v-slot="{ ariaDescribedby }">
-          <b-form-radio
-            v-model="selected"
-            :aria-describedby="ariaDescribedby"
-            name="availabilty"
-            value="active"
-            class="pt-2"
-            >Active</b-form-radio
+        <b-text class="lead font-weight-bold">Subscription Plan</b-text>
+
+        <b-card
+          bg-variant="primary"
+          text-variant="white"
+          class="shadow-lg p-3 mt-4 text-center"
+        >
+          <b-card-title class="title-fluid mt-3 center font-weight-bold"
+            >Classic</b-card-title
           >
-          <b-form-radio
-            v-model="selected"
-            :aria-describedby="ariaDescribedby"
-            name="availabilty"
-            value="inactive"
-            class="py-2"
-            >Inactive</b-form-radio
+          <b-card-subtitle class="subtitle-fluid mb-5"
+            >(Popular)</b-card-subtitle
           >
-        </b-form-group>
-        <b-text class="lead font-weight-bold">Your Topics</b-text>
-        <b-list-group class="py-3">
-          <b-list-group-item class="pl-2 border-0"
-            ><b-icon icon="star-fill"></b-icon
-            ><span> Drafting your financial report</span></b-list-group-item
+          <ul class="text-fluid list-unstyled my-5">
+            <li>* 2 business advisory session monthly</li>
+            <li>* 2 technology advisory session monthly</li>
+            <li>* Access to standard business software tools</li>
+            <li>* Access to 10 business courses</li>
+            <li>* Funding email notifications plus application guidance</li>
+          </ul>
+          <b-card-text
+            class="pricing-text-fluid my-3 text-white font-weight-bold display-4"
           >
-          <b-list-group-item class="pl-2 border-0"
-            ><b-icon icon="star-fill"></b-icon
-            ><span> Setting up a good business plan</span></b-list-group-item
+            N3,000 monthly
+          </b-card-text>
+          <b-button
+            size="lg"
+            block
+            variant="light"
+            class="my-4 text-fluid text-primary font-weight-bold"
+            >Upgrade Plan</b-button
           >
-          <b-list-group-item class="pl-2 border-0"
-            ><b-icon icon="star-fill"></b-icon
-            ><span> Handling Human Resources </span></b-list-group-item
+          <b-button
+            size="lg"
+            block
+            class="my-4 text-fluid text-white bg-primary font-weight-bold"
+            >Downgrade Plan</b-button
           >
-        </b-list-group>
+        </b-card>
       </b-col>
       <b-col class="p-5 text-primary col-md-8 order-md-1 mb-4">
         <b-text class="display-4 mb-4 font-weight-bolder">Settings</b-text>

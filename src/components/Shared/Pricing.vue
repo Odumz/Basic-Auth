@@ -12,7 +12,7 @@
           >
         </div>
         <b-card-group deck class="m-4 text-center ">
-          <b-card class="shadow-lg">
+          <b-card class="shadow-lg p-2">
             <b-card-title class="title-fluid mt-3 center font-weight-bold"
               >Starter</b-card-title
             >
@@ -38,7 +38,11 @@
               >Get Started</b-button
             >
           </b-card>
-          <b-card bg-variant="primary" text-variant="white" class="shadow-lg">
+          <b-card
+            bg-variant="primary"
+            text-variant="white"
+            class="shadow-lg p-2"
+          >
             <b-card-title class="title-fluid mt-3 center font-weight-bold"
               >Classic</b-card-title
             >
@@ -65,7 +69,7 @@
               >Get Started</b-button
             >
           </b-card>
-          <b-card class="shadow-lg">
+          <b-card class="shadow-lg p-2">
             <b-card-title class="title-fluid mt-3 center font-weight-bold"
               >Premium</b-card-title
             >
