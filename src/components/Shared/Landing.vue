@@ -8,11 +8,13 @@
           img-alt="Card image"
           img-fluid-grow
           text-variant="white"
-          ><b-col align-self="center" class="m-3 pt-4">
-            <b-card-title class="p-3 mt-5 font-weight-bold col-8 h1 text-break">
+          class="mt-3"
+          >
+          <b-col class="centered">
+            <b-card-title class="px-4 mt-2 font-weight-bold col-8 h2 text-break">
               EDC Smarter Business Program
             </b-card-title>
-            <b-card-text class="col-10 text-break p-3">
+            <b-card-text class="col-10 text-break py-1 px-4">
               Premium SME Support featuring remotely-delivered business/funding
               advisory, learning & technology support.
             </b-card-text>
@@ -131,5 +133,12 @@ export default {
 .main-body {
   max-width: 100vw !important;
   overflow-x: hidden;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>

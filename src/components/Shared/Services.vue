@@ -6,8 +6,7 @@
           class="services-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"
         >
           <b-card-text
-            style="font-size:3vw;"
-            class="my-1 text-primary font-weight-bold"
+            class="my-1 text-primary h2 font-weight-bold"
             >What We Offer</b-card-text
           >
         </div>
@@ -99,13 +98,13 @@ export default {};
   max-width: 700px;
 }
 
-.title-fluid {
-  font-size: 1.6vw !important;
+/* .title-fluid {
+  font-size: 2vw !important;
 }
 
 .text-fluid {
-  font-size: 1vw !important;
-}
+  font-size: 1.3vw !important;
+} */
 
 .bg-services {
   background-color: #f9f9f9;

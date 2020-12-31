@@ -11,6 +11,7 @@ import VueCountdownTimer from "vuejs-countdown-timer";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
+import "../main.css";
 
 // Add page title in route
 router.beforeEach((to, from, next) => {

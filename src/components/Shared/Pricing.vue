@@ -6,8 +6,7 @@
           class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"
         >
           <b-card-text
-            style="font-size:3vw;"
-            class="my-1 text-primary font-weight-bold"
+            class="my-1 text-primary h2 font-weight-bold"
             >Pricing</b-card-text
           >
         </div>
@@ -27,7 +26,7 @@
               <li>* Funding email notifications</li>
             </ul>
             <b-card-text
-              class="pricing-text-fluid my-3 text-primary font-weight-bold display-4"
+              class="pricing-text-fluid my-3 text-primary font-weight-bold h1"
             >
               N2,000 monthly
             </b-card-text>
@@ -57,7 +56,7 @@
               <li>* Funding email notifications plus application guidance</li>
             </ul>
             <b-card-text
-              class="pricing-text-fluid my-3 text-white font-weight-bold display-4"
+              class="pricing-text-fluid my-3 text-white font-weight-bold h1"
             >
               N3,000 monthly
             </b-card-text>
@@ -87,7 +86,7 @@
               </li>
             </ul>
             <b-card-text
-              class="pricing-text-fluid my-3 text-primary font-weight-bold display-4"
+              class="pricing-text-fluid my-3 text-primary font-weight-bold h1"
             >
               N5,000 monthly
             </b-card-text>
@@ -113,7 +112,7 @@ export default {};
   max-width: 700px;
 }
 
-.title-fluid {
+/* .title-fluid {
   font-size: 2vw !important;
 }
 
@@ -127,7 +126,7 @@ export default {};
 
 .subtitle-fluid {
   font-size: 1vw !important;
-}
+} */
 
 .bg-pricing {
   background-color: #f9f9f9;

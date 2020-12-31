@@ -8,3 +8,4 @@ COPY . .
 RUN npm run build
 EXPOSE 9000
 CMD [ "http-server", "dist" ]
+# CMD ["nodemon", "--exec", "npm", "run", "start"]
