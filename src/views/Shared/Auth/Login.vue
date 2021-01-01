@@ -67,7 +67,8 @@
             block
             >{{ button_text}}</b-button
           >
-          <p class="p-2 d-flex flex-row-reverse text-sm">Forgot Password?</p>
+          <router-link style="text-decoration: none;" to = "/forgot-password">
+          <p class="p-2 d-flex flex-row-reverse text-sm">Forgot Password?</p></router-link>
         </b-form>
       </b-col>
     </b-row>

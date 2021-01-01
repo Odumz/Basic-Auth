@@ -13,7 +13,7 @@
             <b-card-title class="px-4 mt-2 font-weight-bold col-8 h2 text-break">
               EDC Smarter Business Program
             </b-card-title>
-            <b-card-text class="col-10 text-break py-1 px-4">
+            <b-card-text class="col-11 text-break py-1 px-4">
               Premium SME Support featuring remotely-delivered business/funding
               advisory, learning & technology support.
             </b-card-text>
@@ -63,7 +63,7 @@
           <b-button
             class="bg-primary mt-4 font-weight-bold"
             size="lg"
-            type="submit"
+            @click.prevent="submit"
             block
             >Get Started</b-button
           >

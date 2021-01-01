@@ -26,8 +26,8 @@
         <b-navbar-nav class="ml-auto">
           <b-navbar-nav class="mr-5" v-if="isLoggedIn == false">
             <!-- <b-nav-item href="#">Notifications</b-nav-item> -->
-            <b-nav-item href="#">Get Started</b-nav-item>
-            <b-nav-item href="#">Sign In</b-nav-item>
+            <b-nav-item href="/auth/register">Get Started</b-nav-item>
+            <b-nav-item href="/auth/login">Sign In</b-nav-item>
           </b-navbar-nav>
 
           <b-navbar-nav class="mr-5" v-else>
