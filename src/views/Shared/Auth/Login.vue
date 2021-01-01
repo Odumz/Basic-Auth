@@ -4,15 +4,16 @@
       <b-col cols="12" md="7">
         <b-card
           overlay
-          img-src="https://res.cloudinary.com/griffintech/image/upload/v1608201552/samples/pexels-jopwell-2422280_sze4ek.jpg"
           img-alt="Card image"
           img-fluid-grow
           text-variant="white"
-          ><b-col align-self="center" class="m-3 pt-4">
-            <b-card-title class="p-3 mt-5 font-weight-bold col-8 h1 text-break">
+          class="mt-3 img-gradient"
+          >
+          <b-col class="centered">
+            <b-card-title class="px-4 mt-2 font-weight-bold col-8 h2 text-break">
               EDC Smarter Business Program
             </b-card-title>
-            <b-card-text class="col-10 text-break p-3">
+            <b-card-text class="col-10 text-break py-1 px-4">
               Premium SME Support featuring remotely-delivered business/funding
               advisory, learning & technology support.
             </b-card-text>
@@ -20,9 +21,9 @@
         </b-card>
       </b-col>
       <b-col cols="12" md="5" class="p-5 text-primary">
-        <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-          <p class="col-9 text-break font-weight-bold pb-4">
-            Enter your name and email to get started
+        <b-form class="mr-4">
+          <p class="lead display-5 font-weight-bold pb-2">
+            Log In
           </p>
           <b-form-group
             id="input-group-name"
@@ -36,6 +37,7 @@
               id="name"
               v-model="form.name"
               placeholder="Enter name"
+              class="bg-input"
               required
             ></b-form-input>
           </b-form-group>
@@ -53,6 +55,7 @@
               v-model="form.email"
               type="email"
               placeholder="E-mail"
+              class="bg-input"
               required
             ></b-form-input>
           </b-form-group>
@@ -62,8 +65,9 @@
             size="lg"
             type="submit"
             block
-            >Get Started</b-button
+            >{{ button_text}}</b-button
           >
+          <p class="p-2 d-flex flex-row-reverse text-sm">Forgot Password?</p>
         </b-form>
       </b-col>
     </b-row>
@@ -74,6 +78,7 @@
 export default {
   data() {
     return {
+      button_text: "Log In",
       form: {
         email: "",
         name: "",
@@ -131,5 +136,29 @@ export default {
 .main-body {
   max-width: 100vw !important;
   overflow-x: hidden;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text-sm {
+  font-size: 0.8rem;
+}
+
+.display-5 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.img-gradient {
+  background-image: linear-gradient(84.81deg, #111111 0.05%, rgba(17, 17, 17, 0.55) 41.25%),
+  url('https://res.cloudinary.com/griffintech/image/upload/v1608201552/samples/pexels-jopwell-2422280_sze4ek.jpg');
+  height: 100vh;
+  background-size: cover;
 }
 </style>

@@ -4,11 +4,10 @@
       <b-col cols="12" md="7">
         <b-card
           overlay
-          img-src="https://res.cloudinary.com/griffintech/image/upload/v1608201552/samples/pexels-jopwell-2422280_sze4ek.jpg"
           img-alt="Card image"
           img-fluid-grow
           text-variant="white"
-          class="mt-3"
+          class="mt-3 img-gradient"
           >
           <b-col class="centered">
             <b-card-title class="px-4 mt-2 font-weight-bold col-8 h2 text-break">
@@ -38,6 +37,7 @@
               id="name"
               v-model="form.name"
               placeholder="Enter name"
+              class="bg-input"
               required
             ></b-form-input>
           </b-form-group>
@@ -55,6 +55,7 @@
               v-model="form.email"
               type="email"
               placeholder="E-mail"
+              class="bg-input"
               required
             ></b-form-input>
           </b-form-group>
@@ -141,4 +142,12 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.img-gradient {
+  background-image: linear-gradient(84.81deg, #111111 0.05%, rgba(17, 17, 17, 0.55) 41.25%),
+  url('https://res.cloudinary.com/griffintech/image/upload/v1608201552/samples/pexels-jopwell-2422280_sze4ek.jpg');
+  height: 100vh;
+  background-size: cover;
+}
+
 </style>

@@ -5,9 +5,11 @@ import Router from "vue-router";
 import Home from "./views/Shared/Home.vue";
 import Errors from "./views/Shared/Errors/Error.vue";
 import Login from "./views/Shared/Auth/Login.vue";
+import Register from "./views/Shared/Auth/Register.vue";
 import ForgotPassword from "./views/Shared/Auth/ForgotPassword.vue";
 import ResetPassword from "./views/Shared/Auth/ResetPassword.vue";
 import Menu from "./views/Shared/Menu/Menu.vue";
+import stepform_duplicate from "./views/Shared/Menu/stepform_duplicate.vue";
 import CreateBusiness from "./views/Auth/SME/CreateBusiness.vue";
 import CreateConsultant from "./views/Auth/Consultants/CreateConsultant.vue";
 
@@ -43,6 +45,11 @@ const routes = [
     component: Login
   },
   {
+    path: "/auth/register",
+    name: "register",
+    component: Register
+  },
+  {
     path: "/business/create-account",
     name: "CreateBusiness",
     component: CreateBusiness
@@ -66,6 +73,11 @@ const routes = [
     path: "/dashboard/profile",
     component: Profile,
     name: "temp-profile"
+  },
+  {
+    path: "/dashboard/step",
+    component: stepform_duplicate,
+    name: "temp-step"
   },
   {
     path: "/dashboard",
