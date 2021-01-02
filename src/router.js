@@ -60,21 +60,6 @@ const routes = [
     component: CreateConsultant
   },
   {
-    path: "/dashboard/settings",
-    component: Settings,
-    name: "temp-settings"
-  },
-  {
-    path: "/dashboard/settings_two",
-    component: SettingsTwo,
-    name: "temp-settings-two"
-  },
-  {
-    path: "/dashboard/profile",
-    component: Profile,
-    name: "temp-profile"
-  },
-  {
     path: "/dashboard/step",
     component: stepform_duplicate,
     name: "temp-step"
@@ -95,9 +80,19 @@ const routes = [
         name: "notifications"
       },
       {
+        path: "/dashboard/settings_two",
+        component: SettingsTwo,
+        name: "temp-settings-two"
+      },
+      {
         path: "/dashboard/inbox",
         component: Inbox,
         name: "inbox"
+      },
+      {
+        path: "/dashboard/profile",
+        component: Profile,
+        name: "temp-profile"
       },
       {
         path: "/dashboard/settings",

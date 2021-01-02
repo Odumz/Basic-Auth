@@ -1,7 +1,7 @@
 <template>
     <main>
         <Header />
-        <div class=" container-fluid bg-secondary">
+        <!-- <div class=" container-fluid bg-secondary">
             <div class="row flex justify-content-center pt-3">
                 <div class="col-2 bg-white pt-5 pb-5">
                     <div class="pt-1 pb-2 px-3">
@@ -12,7 +12,7 @@
                         width="65%"
                         class="ml-auto"
                         />
-                    </router-link>
+                        </router-link>
                     </div>
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active mt-3 mb-2" id="v-pills-home-tab" data-toggle="pill" href="/" role="tab" aria-controls="v-pills-home" aria-selected="true"> <b-icon icon="house-door-fill" ></b-icon>  <span class="px-1">
@@ -33,7 +33,51 @@
                     </div>
                 </div>
                 </div>
-        </div>
+        </div> -->
+        <body class="has-drawer row flex justify-content-center pt-3"> <!-- add this class to your body for proper sizing -->
+        <div class="col-2 bg-white pt-5 pb-5">
+            <div class="pt-1 pb-2 px-3">
+                <router-link to="/">
+                <img
+                src="https://res.cloudinary.com/griffintech/image/upload/v1609532960/edc-logo_kfuetw.png"
+                alt="EDC Marketplace"
+                width="65%"
+                class="ml-auto"
+                />
+                </router-link>
+            </div>
+            <div id="drawerExample" class="drawer dw-xs-10 dw-sm-6 dw-md-4 fold" aria-labelledby="drawerExample">
+                <div class="drawer-controls">
+                    <a href="#drawerExample" data-toggle="drawer" aria-foldedopen="false" aria-controls="drawerExample" class="btn btn-primary btn-sm">Menu</a>
+                </div>
+                <div class="drawer-contents">
+                    <div class="drawer-heading">
+                        <h2 class="drawer-title">Menu</h2>
+                    </div>
+                    <div class="drawer-body">
+                        <p>
+                            This is a properly padded container for content in the
+                            drawer that isn't a navigation.
+                        </p>
+                        <a href="#">A Regular Link</a>
+                    </div>
+                    <ul class="drawer-nav">
+                        <li role="presentation" class="active"><a href="/dashboard">Home</a></li>
+                        <li role="presentation"><a href="/dashboard">Profile</a></li>
+                        <li role="presentation"><a href="/dashboard">Messages</a></li>
+                    </ul>
+                    <div class="drawer-footer">
+                        <small>&copy; Caroline Amaba</small>
+                    </div>
+                </div>
+            </div></div>
+            <div class="col-10 bg-menu pt-3 ">
+                <div class="container">
+                    <!-- content as per usual -->
+                    <router-view></router-view>
+                </div>
+            </div>
+        </body>
     </main>
 </template>
 
