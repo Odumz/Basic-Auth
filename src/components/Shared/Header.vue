@@ -65,7 +65,7 @@
       toggleable="md"
       variant="white"
       type="primary"
-      class="py-3 fixed-top"
+      class="py-2 fixed-top"
       v-else
     >
       <!-- <b-navbar-brand href="/">
@@ -130,7 +130,7 @@ export default {
   data() {
     return {
       open: false,
-      isLoggedIn: true
+      isLoggedIn: false
     };
   },
   methods: {

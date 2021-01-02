@@ -2,8 +2,8 @@
     <main>
         <Header />
         <div class=" container-fluid bg-secondary">
-            <div class="row flex justify-content-center pt-5">
-                <div class="col-2 bg-white py-5">
+            <div class="row flex justify-content-center pt-3">
+                <div class="col-2 bg-white pt-5 pb-5">
                     <div class="pt-1 pb-2 px-3">
                         <router-link to="/">
                         <img
@@ -24,7 +24,7 @@
                     <a class="nav-link mb-2" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><b-icon icon="gear-fill" variant="primary"></b-icon> <span class="px-1">Settings</span></a>
                     </div>
                 </div>
-                <div class="col-10 bg-menu">
+                <div class="col-10 bg-menu pt-3 ">
                     <div class="tab-content mt-5 ml-3 bg-white" id="v-pills-tabContent">
                     <div class="tab-pane fade show active p-5" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">Cillum ad ut irure tempor velit nostrud occaecat ullamco aliqua anim Lorem sint. Veniam sint duis incididunt do esse magna mollit excepteur laborum qui. Id id reprehenderit sit est eu aliqua occaecat quis et velit excepteur laborum mollit dolore eiusmod. Ipsum dolor in occaecat commodo et voluptate minim reprehenderit mollit pariatur. Deserunt non laborum enim et cillum eu deserunt excepteur ea incididunt minim occaecat.</div>
                     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">Culpa dolor voluptate do laboris laboris irure reprehenderit id incididunt duis pariatur mollit aute magna pariatur consectetur. Eu veniam duis non ut dolor deserunt commodo et minim in quis laboris ipsum velit id veniam. Quis ut consectetur adipisicing officia excepteur non sit. Ut et elit aliquip labore Lorem enim eu. Ullamco mollit occaecat dolore ipsum id officia mollit qui esse anim eiusmod do sint minim consectetur qui.</div>
