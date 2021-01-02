@@ -1,4 +1,6 @@
 <template>
+<main>
+  <Header />
   <b-container-fluid class="main-body">
     <b-row align-v="center" class="flex justify-content-center pt-5">
       <b-col cols="12" md="7">
@@ -68,7 +70,7 @@
               type="submit"
               @click.prevent="navigate('email')"
               block
-              >Get Started</b-button
+              >Continue</b-button
             >
           </div>
           
@@ -144,7 +146,7 @@
               size="md"
               @click.prevent="navigate('email')"
               >Next</b-button>
-            </main>
+            </main> 
           </div>
 
           <div v-if="step == 3">
@@ -166,6 +168,7 @@
               <b-form-input
                 id="password"
                 v-model="data.password"
+                type="password"
                 placeholder="Enter password"
                 class="bg-input"
                 required
@@ -183,7 +186,7 @@
               <b-form-input
                 id="confirm_password"
                 v-model="data.confirm_password"
-                type="confirm_password"
+                type="password"
                 placeholder="Confirm password"
                 class="bg-input"
                 required
@@ -214,10 +217,15 @@
       </b-col>
     </b-row>
   </b-container-fluid>
+</main>
 </template>
 
 <script>
+import Header from "../../../components/Shared/Header";
 export default {
+  components: {
+    Header
+  },
   data() {
     return {
       step: 1,
@@ -282,7 +290,7 @@ export default {
   }
 }
 
-.main-body {
+main {
   max-width: 100vw !important;
   overflow-x: hidden;
 }

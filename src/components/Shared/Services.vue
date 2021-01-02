@@ -1,6 +1,6 @@
 <template>
-  <b-container-fluid>
-    <b-row class="bg-services">
+  <b-container-fluid class=" bg-services">
+    <b-row class="py-5 bg-services">
       <b-col class="m-2">
         <div
           class="services-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"
@@ -12,9 +12,10 @@
         </div>
         <b-card-group deck class="m-4 text-center text-primary">
           <b-card
-            img-src="https://picsum.photos/300/300/?image=41"
+            img-src="https://res.cloudinary.com/griffintech/image/upload/v1609534435/samples/people-in-a-meeting-1367274_1_jhi20n.png"
             img-alt="Image"
             img-top
+            class="rounded-card"
           >
             <b-card-title class="title-fluid font-weight-bold">
               On Demand Business Advisory
@@ -34,9 +35,10 @@
           </b-card>
 
           <b-card
-            img-src="https://picsum.photos/300/300/?image=41"
+            img-src="https://res.cloudinary.com/griffintech/image/upload/v1609534910/samples/auditorium-benches-chairs-class-207691_1_vhfih3.png"
             img-alt="Image"
             img-top
+            class="rounded-card"
           >
             <b-card-title class="title-fluid font-weight-bold">
               Learning Academy
@@ -55,9 +57,10 @@
           </b-card>
 
           <b-card
-            img-src="https://picsum.photos/300/300/?image=41"
+            img-src="https://res.cloudinary.com/griffintech/image/upload/v1609534909/samples/business-people-talking-4427618_1_mn5aos.png"
             img-alt="Image"
             img-top
+            class="rounded-card"
           >
             <b-card-title class="title-fluid font-weight-bold">
               Marketplace
@@ -77,8 +80,8 @@
         </b-card-group>
       </b-col>
     </b-row>
-    <b-row class=" bg-services">
-      <b-col class="my-2">
+    <b-row>
+      <b-col class="py-2 bg-services">
         <b-card body-class="text-primary text-center">
           <b-card-text class="m-3">
             All these for a single affordable monthly/annual subscription
@@ -107,6 +110,11 @@ export default {};
 } */
 
 .bg-services {
-  background-color: #f9f9f9;
+  background-color: #e7f4fe;
 }
+
+.rounded-card {
+  border-radius: 25px;
+}
+
 </style>

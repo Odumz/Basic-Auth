@@ -1,4 +1,6 @@
 <template>
+<main>
+  <Header />
   <b-container-fluid class="main-body">
     <b-row align-v="center" class="flex justify-content-center pt-5">
       <b-col cols="12" md="7">
@@ -73,10 +75,15 @@
       </b-col>
     </b-row>
   </b-container-fluid>
+</main>
 </template>
 
 <script>
+import Header from "../../../components/Shared/Header";
 export default {
+  components: {
+    Header
+  },
   data() {
     return {
       button_text: "Log In",
@@ -134,7 +141,7 @@ export default {
   }
 }
 
-.main-body {
+main {
   max-width: 100vw !important;
   overflow-x: hidden;
 }

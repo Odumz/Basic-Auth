@@ -40,6 +40,7 @@
 
 
 $edc-blue: #043F6C !default;
+$edc-header: #102767 !default;
 $edc-input: #e7f4fe !default;
 // $edc-input: #aedafc !default;
 // $red: #dc3545 !default;
@@ -66,6 +67,7 @@ $edc-input: #e7f4fe !default;
 
 $primary:       $edc-blue !default;
 $input: $edc-input !default;
+$nav: $edc-header !default;
 // $secondary:     $gray-600 !default;
 // $success:       $green !default;
 // $info:          $cyan !default;
@@ -78,7 +80,8 @@ $theme-colors: () !default;
 $theme-colors: map-merge(
   (
     "primary":    $primary,
-    "input": $input
+    "input": $input,
+    "nav": $nav
     // "secondary":  $secondary,
     // "success":    $success,
     // "info":       $info,

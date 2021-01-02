@@ -1,6 +1,6 @@
 <template>
   <b-container-fluid>
-    <b-row class="bg-pricing">
+    <b-row class="py-5 bg-pricing">
       <b-col class="m-2 text-primary">
         <div
           class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"
@@ -11,7 +11,7 @@
           >
         </div>
         <b-card-group deck class="m-4 text-center ">
-          <b-card class="shadow-lg p-2">
+          <b-card class="shadow-lg p-2 rounded-card">
             <b-card-title class="title-fluid mt-3 center font-weight-bold"
               >Starter</b-card-title
             >
@@ -40,7 +40,7 @@
           <b-card
             bg-variant="primary"
             text-variant="white"
-            class="shadow-lg p-2"
+            class="shadow-lg p-2 rounded-card"
           >
             <b-card-title class="title-fluid mt-3 center font-weight-bold"
               >Classic</b-card-title
@@ -68,7 +68,7 @@
               >Get Started</b-button
             >
           </b-card>
-          <b-card class="shadow-lg p-2">
+          <b-card class="shadow-lg p-2 rounded-card">
             <b-card-title class="title-fluid mt-3 center font-weight-bold"
               >Premium</b-card-title
             >
@@ -129,6 +129,10 @@ export default {};
 } */
 
 .bg-pricing {
-  background-color: #f9f9f9;
+  background-color: #e7f4fe;
+}
+
+.rounded-card {
+  border-radius: 25px;
 }
 </style>
