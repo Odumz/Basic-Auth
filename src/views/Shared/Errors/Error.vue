@@ -109,7 +109,7 @@
 export default {
   data() {
     return {
-        error: "403",
+        error: "404",
         error_text: {
             not_found: "Error 404",
             forbidden: "Error 403",

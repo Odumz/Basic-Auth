@@ -1,51 +1,55 @@
 <template>
   <b-container-fluid class="main-body">
-    <b-row align-v="center" class="flex justify-content-center pt-5">
+    <b-row align-v="center" class="flex justify-content-center pt-1">
       <!-- <b-col col="12" class="p-5">
         <b-text class="display-4 mb-4 font-weight-bolder">Settings</b-text>
       </b-col> -->
-      <b-col class="p-5 text-primary col-md-4 order-md-2 mb-4">
+      <b-col class="p-5 text-primary col-md-10 col-lg-5 order-md-2 mb-4">
+        <div class="text-center">
         <b-text class="lead font-weight-bold">Subscription Plan</b-text>
 
-        <b-card
-          bg-variant="primary"
-          text-variant="white"
-          class="shadow-lg p-3 mt-4 text-center"
-        >
-          <b-card-title class="title-fluid mt-3 center font-weight-bold"
-            >Classic</b-card-title
+        <div class="text-center pt-3">
+          <b-card
+            bg-variant="primary"
+            text-variant="white"
+            class="shadow-lg p-2 rounded-card"
           >
-          <b-card-subtitle class="subtitle-fluid mb-5"
-            >(Popular)</b-card-subtitle
-          >
-          <ul class="text-fluid list-unstyled my-5">
-            <li>* 2 business advisory session monthly</li>
+            <b-card-title class="title-fluid mt-3 center font-weight-bold"
+              >Classic</b-card-title
+            >
+            <b-card-subtitle class="subtitle-fluid mb-5"
+              >(Popular)</b-card-subtitle
+            >
+            <ul class="text-fluid list-unstyled my-5">
+              <li>* 2 business advisory session monthly</li>
             <li>* 2 technology advisory session monthly</li>
             <li>* Access to standard business software tools</li>
             <li>* Access to 10 business courses</li>
             <li>* Funding email notifications plus application guidance</li>
-          </ul>
-          <b-card-text
-            class="pricing-text-fluid my-3 text-white font-weight-bold display-4"
-          >
-            N3,000 monthly
-          </b-card-text>
-          <b-button
-            size="lg"
-            block
-            variant="light"
-            class="my-4 text-fluid text-primary font-weight-bold"
-            >Upgrade Plan</b-button
-          >
-          <b-button
-            size="lg"
-            block
-            class="my-4 text-fluid text-white bg-primary font-weight-bold"
-            >Downgrade Plan</b-button
-          >
-        </b-card>
+            </ul>
+            <b-card-text
+              class="pricing-text-fluid my-3 text-white font-weight-bold h1"
+            >
+              N3,000 monthly
+            </b-card-text>
+            <b-button
+              size="md"
+              block
+              variant="light"
+              class="my-4 text-fluid text-primary font-weight-bold"
+              >Get Started</b-button
+            >
+            <b-button
+              size="md"
+              block
+              class="my-4 text-fluid text-white bg-primary font-weight-bold"
+              >Downgrade Plan</b-button
+            >
+          </b-card>
+          </div>
+          </div>
       </b-col>
-      <b-col class="p-5 text-primary col-md-8 order-md-1 mb-4">
+      <b-col class="p-5 text-primary col-md-12 col-lg-7 order-md-1 mb-4">
         <b-text class="display-4 mb-4 font-weight-bolder">Settings</b-text>
         <b-form @submit="onSubmit" @reset="onReset" class="my-5">
           <b-form-group

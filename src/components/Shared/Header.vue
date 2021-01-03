@@ -16,7 +16,7 @@
         />
       </b-navbar-brand>
 
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-navbar-toggle target="nav-collapse" class="mr-3"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <!-- <b-navbar-nav>
@@ -68,16 +68,16 @@
       class="py-2 fixed-top"
       v-else
     >
-      <!-- <b-navbar-brand href="/">
-        <img
+      <b-navbar-brand href="/">
+        <!-- <img
           src="https://res.cloudinary.com/griffintech/image/upload/v1609532960/edc-logo_kfuetw.png"
           alt="EDC Marketplace"
           width="85%"
           class="ml-4"
-        />
-      </b-navbar-brand> -->
+        /> -->
+      </b-navbar-brand>
 
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-navbar-toggle target="nav-collapse" class="mr-3"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <!-- <b-navbar-nav>
@@ -130,7 +130,7 @@ export default {
   data() {
     return {
       open: false,
-      isLoggedIn: false
+      isLoggedIn: true
     };
   },
   methods: {
@@ -163,6 +163,10 @@ export default {
 .navbar-primary .navbar-nav .nav-link {
   /* color: #ffffff !important; */
   color: #043F6C !important;
+}
+
+.navbar-toggler-icon {
+  color: #043F6C;
 }
  
 </style>

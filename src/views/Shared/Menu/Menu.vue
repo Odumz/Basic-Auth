@@ -1,83 +1,36 @@
 <template>
     <main>
         <Header />
-        <!-- <div class=" container-fluid bg-secondary">
+        <div class=" container-fluid bg-secondary">
             <div class="row flex justify-content-center pt-3">
-                <div class="col-2 bg-white pt-5 pb-5">
+                <div class="col-lg-2-5 col-md-3 col-sm-4 bg-white pt-5 pb-5">
                     <div class="pt-1 pb-2 px-3">
                         <router-link to="/">
                         <img
                         src="https://res.cloudinary.com/griffintech/image/upload/v1609532960/edc-logo_kfuetw.png"
                         alt="EDC Marketplace"
                         width="65%"
-                        class="ml-auto"
+                        class="mx-auto d-block"
                         />
                         </router-link>
                     </div>
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active mt-3 mb-2" id="v-pills-home-tab" data-toggle="pill" href="/" role="tab" aria-controls="v-pills-home" aria-selected="true"> <b-icon icon="house-door-fill" ></b-icon>  <span class="px-1">
+                    <a class="nav-link active mt-3 mb-2" id="v-pills-home-tab" data-toggle="pill" href="/dashboard" role="tab" aria-controls="v-pills-home" aria-selected="true"> <b-icon icon="house-door-fill" ></b-icon>  <span class="px-1">
                     Home</span></a>
                     <a class="nav-link mb-2" id="v-pills-profile-tab" data-toggle="pill" href="/dashboard/settings" role="tab" aria-controls="v-pills-profile" aria-selected="false"><b-icon icon="display-fill" variant="primary"></b-icon> <span class="px-1">Advisory</span></a>
-                    <a class="nav-link mb-2" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><b-icon icon="basket-fill" variant="primary"></b-icon> <span class="px-1">Marketplace</span></a>
-                    <a class="nav-link mb-2" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><b-icon icon="basket-fill" variant="primary"></b-icon> <span class="px-1">Subscription</span></a>
-                    <a class="nav-link mb-2" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><b-icon icon="chat-left-dots-fill" variant="primary"></b-icon> <span class="px-1">Inbox</span></a>
-                    <a class="nav-link mb-2" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><b-icon icon="gear-fill" variant="primary"></b-icon> <span class="px-1">Settings</span></a>
+                    <a class="nav-link mb-2" id="v-pills-messages-tab" data-toggle="pill" href="/dashboard/profile" role="tab" aria-controls="v-pills-messages" aria-selected="false"><b-icon icon="basket-fill" variant="primary"></b-icon> <span class="px-1">Marketplace</span></a>
+                    <a class="nav-link mb-2" id="v-pills-settings-tab" data-toggle="pill" href="/dashboard/settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><b-icon icon="basket-fill" variant="primary"></b-icon> <span class="px-1">Subscription</span></a>
+                    <a class="nav-link mb-2" id="v-pills-settings-tab" data-toggle="pill" href="/dashboard/profile" role="tab" aria-controls="v-pills-settings" aria-selected="false"><b-icon icon="chat-left-dots-fill" variant="primary"></b-icon> <span class="px-1">Inbox</span></a>
+                    <a class="nav-link mb-2" id="v-pills-settings-tab" data-toggle="pill" href="/dashboard/settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><b-icon icon="gear-fill" variant="primary"></b-icon> <span class="px-1">Settings</span></a>
                     </div>
                 </div>
-                <div class="col-10 bg-menu pt-3 ">
-                    <div class="tab-content mt-5 ml-3 bg-white" id="v-pills-tabContent">
-                    <div class="tab-pane fade show active p-5" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">Cillum ad ut irure tempor velit nostrud occaecat ullamco aliqua anim Lorem sint. Veniam sint duis incididunt do esse magna mollit excepteur laborum qui. Id id reprehenderit sit est eu aliqua occaecat quis et velit excepteur laborum mollit dolore eiusmod. Ipsum dolor in occaecat commodo et voluptate minim reprehenderit mollit pariatur. Deserunt non laborum enim et cillum eu deserunt excepteur ea incididunt minim occaecat.</div>
-                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">Culpa dolor voluptate do laboris laboris irure reprehenderit id incididunt duis pariatur mollit aute magna pariatur consectetur. Eu veniam duis non ut dolor deserunt commodo et minim in quis laboris ipsum velit id veniam. Quis ut consectetur adipisicing officia excepteur non sit. Ut et elit aliquip labore Lorem enim eu. Ullamco mollit occaecat dolore ipsum id officia mollit qui esse anim eiusmod do sint minim consectetur qui.</div>
-                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure occaecat velit nostrud magna nulla. Velit et et proident Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip labore est magna commodo est ea veniam consectetur.</div>
-                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+                <div class="col-lg-9-5 col-md-9 bg-menu pt-3 ">
+                    <div class="tab-content mt-5 ml-3 px-5 bg-white" id="v-pills-tabContent">
+                      <router-view></router-view>
                     </div>
                 </div>
                 </div>
-        </div> -->
-        <body class="has-drawer row flex justify-content-center pt-3"> <!-- add this class to your body for proper sizing -->
-        <div class="col-2 bg-white pt-5 pb-5">
-            <div class="pt-1 pb-2 px-3">
-                <router-link to="/">
-                <img
-                src="https://res.cloudinary.com/griffintech/image/upload/v1609532960/edc-logo_kfuetw.png"
-                alt="EDC Marketplace"
-                width="65%"
-                class="ml-auto"
-                />
-                </router-link>
-            </div>
-            <div id="drawerExample" class="drawer dw-xs-10 dw-sm-6 dw-md-4 fold" aria-labelledby="drawerExample">
-                <div class="drawer-controls">
-                    <a href="#drawerExample" data-toggle="drawer" aria-foldedopen="false" aria-controls="drawerExample" class="btn btn-primary btn-sm">Menu</a>
-                </div>
-                <div class="drawer-contents">
-                    <div class="drawer-heading">
-                        <h2 class="drawer-title">Menu</h2>
-                    </div>
-                    <div class="drawer-body">
-                        <p>
-                            This is a properly padded container for content in the
-                            drawer that isn't a navigation.
-                        </p>
-                        <a href="#">A Regular Link</a>
-                    </div>
-                    <ul class="drawer-nav">
-                        <li role="presentation" class="active"><a href="/dashboard">Home</a></li>
-                        <li role="presentation"><a href="/dashboard">Profile</a></li>
-                        <li role="presentation"><a href="/dashboard">Messages</a></li>
-                    </ul>
-                    <div class="drawer-footer">
-                        <small>&copy; Caroline Amaba</small>
-                    </div>
-                </div>
-            </div></div>
-            <div class="col-10 bg-menu pt-3 ">
-                <div class="container">
-                    <!-- content as per usual -->
-                    <router-view></router-view>
-                </div>
-            </div>
-        </body>
+        </div>
     </main>
 </template>
 
@@ -148,6 +101,25 @@ main {
   max-width: 100vw !important;
   overflow-x: hidden;
 }
+
+.col-lg-2-5, .col-lg-9-5 {
+  -ms-flex: 0 0 20.666667%;
+  flex: 0 0 20.666667%;
+  max-width: 20.666667%;
+  position: relative;
+}
+
+.col-lg-2-5 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.col-lg-9-5 {
+    -ms-flex: 0 0 79.333333%;
+    flex: 0 0 79.333333%;
+    max-width: 79.333333%;
+  }
 
 .bg-menu {
   background-color: #e7f4fe;

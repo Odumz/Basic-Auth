@@ -1,6 +1,6 @@
 <template>
   <b-container-fluid class="main-body">
-    <b-row align-v="center" class="flex justify-content-center pt-5">
+    <b-row align-v="center" class="flex justify-content-center pt-1">
       <!-- <b-col col="12" class="p-5">
         <b-text class="display-4 mb-4 font-weight-bolder">Settings</b-text>
       </b-col> -->

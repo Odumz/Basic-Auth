@@ -41,11 +41,10 @@
           >
         </b-card>
       </b-col> -->
-      <b-col class="p-5 text-primary col-md-8 order-md-1 mb-4">
+      <b-col class="px-5 text-primary col-12 order-md-1 mb-4">
         <b-text class="display-4 mb-4 font-weight-bolder"
           >Profile
-          <span><b-icon icon="pencil-square text-primary"></b-icon></span
-        ></b-text>
+        </b-text>
         <b-form @submit="onSubmit" @reset="onReset" class="my-5">
           <b-form-group
             id="input-group-name"
