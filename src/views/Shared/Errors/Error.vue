@@ -1,6 +1,7 @@
 <template>
+<main class="main">
   <b-container-fluid class="main-body">
-    <b-row align-v="center" class="flex justify-content-center pt-5">
+    <b-row align-v="center" class="flex justify-content-center mt-n3">
       <b-col>
         <b-card
           overlay
@@ -82,7 +83,7 @@
                     <b-card-text class="text-break py-1 px-4">
                     {{ error_subtext.forbidden }}
                     
-                    <main class="flex d-flex justify-content-md-center my-2">
+                    <main class="row flex d-flex justify-content-center my-2">
                     <b-button
                     class="bg-white mt-4 text-primary font-weight-bold mx-3"
                     size="md"
@@ -101,13 +102,14 @@
       </b-col>
     </b-row>
   </b-container-fluid>
+  </main>
 </template>
 
 <script>
 export default {
   data() {
     return {
-        error: "401",
+        error: "403",
         error_text: {
             not_found: "Error 404",
             forbidden: "Error 403",
@@ -173,13 +175,13 @@ export default {
 
 <style lang="scss" scoped>
 @media screen and (max-height: 750px) {
-  .main-body {
+  .main {
     min-height: calc(100vh - 5px) !important;
     overflow-x: hidden;
   }
 }
 
-.main-body {
+.main {
   max-width: 100vw !important;
   overflow-x: hidden;
 }
@@ -228,5 +230,10 @@ export default {
   url('https://res.cloudinary.com/griffintech/image/upload/v1608201552/samples/pexels-jopwell-2422280_sze4ek.jpg');
   height: 75vh;
   background-size: cover;
+}
+
+button {
+  max-width: 170px;
+  min-width: 170px;
 }
 </style>

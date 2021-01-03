@@ -154,4 +154,8 @@ export default {
   letter-spacing: 2px;
 }
 
+input::placeholder {
+  color: #043F6C !important;
+}
+
 </style>

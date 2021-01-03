@@ -169,4 +169,9 @@ main {
   height: 100vh;
   background-size: cover;
 }
+
+input::placeholder {
+  color: #043F6C !important;
+}
+
 </style>
