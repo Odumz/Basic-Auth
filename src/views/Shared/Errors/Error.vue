@@ -49,7 +49,7 @@
             <b-card
               v-if="error == 401"
               overlay
-              img-alt="Card image"
+              img-alt="Card imge"
               img-fluid-grow
               text-variant="white"
               class="mt-3 img-401 text-center"
