@@ -28,8 +28,12 @@
         <b-navbar-nav class="ml-auto">
           <b-navbar-nav class="mr-5">
             <!-- <b-nav-item href="#">Notifications</b-nav-item> -->
-            <b-nav-item href="/auth/register" class="font-weight-bold">Get Started</b-nav-item>
-            <b-nav-item href="/auth/login" class="font-weight-bold">Sign In</b-nav-item>
+            <b-nav-item href="/auth/register" class="font-weight-bold"
+              >Get Started</b-nav-item
+            >
+            <b-nav-item href="/auth/login" class="font-weight-bold"
+              >Sign In</b-nav-item
+            >
           </b-navbar-nav>
 
           <!-- <b-nav-form>
@@ -88,9 +92,13 @@
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-navbar-nav class="mr-5">
-            <b-nav-item href="/dashboard/notifications" class="font-weight-bold">Notifications</b-nav-item>
-            <b-nav-item href="/dashboard/profile" class="font-weight-bold">Profile</b-nav-item>
-            <b-nav-item href="/logut" class="font-weight-bold">Log Out</b-nav-item>
+            <b-nav-item href="/dashboard/notifications" class="font-weight-bold"
+              >Notifications</b-nav-item
+            >
+            <b-nav-item href="/dashboard/profile" class="font-weight-bold"
+              >Profile</b-nav-item
+            >
+            <b-nav-item href="/" class="font-weight-bold">Log Out</b-nav-item>
           </b-navbar-nav>
           <!-- <b-nav-form>
             <b-form-input
@@ -130,14 +138,35 @@ export default {
   data() {
     return {
       open: false,
-      isLoggedIn: true
+      isLoggedIn: false,
+      fullpath: '',
     };
+  },
+  async mounted() {
+    await this.getFullpath();
+    await this.getUserLog();
   },
   methods: {
     toggle() {
       this.open = !this.open;
-    }
-  }
+    },
+    getFullpath() {
+      // console.log('fdom');
+      this.fullpath = this.$route.fullPath;
+      // console.log(this.fullpath);
+      return this.fullpath;
+    },
+    getUserLog() {
+      if (
+        this.fullpath == '/auth/login' ||
+        this.fullpath == '/' ||
+        this.fullpath == '/auth/register' ||
+        this.fullpath == '/forgot-password'
+      ) {
+        this.isLoggedIn = false;
+      } else this.isLoggedIn = true;
+    },
+  },
 };
 </script>
 
@@ -162,11 +191,10 @@ export default {
 
 .navbar-primary .navbar-nav .nav-link {
   /* color: #ffffff !important; */
-  color: #043F6C !important;
+  color: #043f6c !important;
 }
 
 .navbar-toggler-icon {
-  color: #043F6C;
+  color: #043f6c;
 }
- 
 </style>

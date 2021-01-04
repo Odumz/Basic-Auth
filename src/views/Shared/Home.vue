@@ -8,17 +8,17 @@
 </template>
 
 <script>
-import Header from "../../components/Shared/Header";
-import Landing from "../../components/Shared/Landing";
-import About from "../../components/Shared/About";
-import Footer from "../../components/Shared/Footer";
+import Header from '../../components/Shared/Header';
+import Landing from '../../components/Shared/Landing';
+import About from '../../components/Shared/About';
+import Footer from '../../components/Shared/Footer';
 export default {
   components: {
     Header,
     Landing,
     About,
-    Footer
-  }
+    Footer,
+  },
 };
 </script>
 

@@ -5,8 +5,7 @@
         <div
           class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"
         >
-          <b-card-text
-            class="my-1 text-primary h2 font-weight-bold"
+          <b-card-text class="my-1 text-primary h2 font-weight-bold"
             >Pricing</b-card-text
           >
         </div>

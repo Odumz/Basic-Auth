@@ -42,9 +42,7 @@
         </b-card>
       </b-col> -->
       <b-col class="px-5 text-primary col-12 order-md-1 mb-4">
-        <b-text class="display-4 mb-4 font-weight-bolder"
-          >Profile
-        </b-text>
+        <b-text class="display-4 mb-4 font-weight-bolder">Profile </b-text>
         <b-form @submit="onSubmit" @reset="onReset" class="my-5">
           <b-form-group
             id="input-group-name"
@@ -156,27 +154,27 @@ export default {
   data() {
     return {
       form: {
-        email: "",
-        name: "",
+        email: '',
+        name: '',
         food: null,
-        checked: []
+        checked: [],
       },
       validFeedback: {
         name: `Thanks`,
-        email: `Thank you`
+        email: `Thank you`,
       },
       invalidFeedback: {
-        name: "",
-        email: ""
+        name: '',
+        email: '',
       },
       foods: [
-        { text: "Select One", value: null },
-        "Carrots",
-        "Beans",
-        "Tomatoes",
-        "Corn"
+        { text: 'Select One', value: null },
+        'Carrots',
+        'Beans',
+        'Tomatoes',
+        'Corn',
       ],
-      show: true
+      show: true,
     };
   },
   methods: {
@@ -187,8 +185,8 @@ export default {
     onReset(event) {
       event.preventDefault();
       // Reset our form values
-      this.form.email = "";
-      this.form.name = "";
+      this.form.email = '';
+      this.form.name = '';
       this.form.food = null;
       this.form.checked = [];
       // Trick to reset/clear native browser form validation state
@@ -196,8 +194,8 @@ export default {
       this.$nextTick(() => {
         this.show = true;
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

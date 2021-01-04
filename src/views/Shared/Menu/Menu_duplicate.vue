@@ -182,10 +182,7 @@
         </router-link> -->
 
         <router-link
-          v-if="
-            !user.developer_account &&
-              !user.business_account
-          "
+          v-if="!user.developer_account && !user.business_account"
           to="/dashboard/admin/consultation-requests"
           class="tw-py-2"
         >
@@ -226,9 +223,11 @@
         </router-link>
 
         <router-link
-          v-if="!user.developer_account &&
+          v-if="
+            !user.developer_account &&
               !user.faculty_account &&
-              !user.business_account"
+              !user.business_account
+          "
           to="/dashboard/requests"
           class="tw-py-2"
         >
@@ -362,50 +361,65 @@
       </div>
     </v-content>
 
-        <body class="has-drawer row flex justify-content-center pt-3"> <!-- add this class to your body for proper sizing -->
-        <div class="col-2 bg-white pt-5 pb-5">
-            <div class="pt-1 pb-2 px-3">
-                <router-link to="/">
-                <img
-                src="https://res.cloudinary.com/griffintech/image/upload/v1609532960/edc-logo_kfuetw.png"
-                alt="EDC Marketplace"
-                width="65%"
-                class="ml-auto"
-                />
-                </router-link>
+    <body class="has-drawer row flex justify-content-center pt-3">
+      <!-- add this class to your body for proper sizing -->
+      <div class="col-2 bg-white pt-5 pb-5">
+        <div class="pt-1 pb-2 px-3">
+          <router-link to="/">
+            <img
+              src="https://res.cloudinary.com/griffintech/image/upload/v1609532960/edc-logo_kfuetw.png"
+              alt="EDC Marketplace"
+              width="65%"
+              class="ml-auto"
+            />
+          </router-link>
+        </div>
+        <div
+          id="drawerExample"
+          class="drawer dw-xs-10 dw-sm-6 dw-md-4 fold"
+          aria-labelledby="drawerExample"
+        >
+          <div class="drawer-controls">
+            <a
+              href="#drawerExample"
+              data-toggle="drawer"
+              aria-foldedopen="false"
+              aria-controls="drawerExample"
+              class="btn btn-primary btn-sm"
+              >Menu</a
+            >
+          </div>
+          <div class="drawer-contents">
+            <div class="drawer-heading">
+              <h2 class="drawer-title">Menu</h2>
             </div>
-            <div id="drawerExample" class="drawer dw-xs-10 dw-sm-6 dw-md-4 fold" aria-labelledby="drawerExample">
-                <div class="drawer-controls">
-                    <a href="#drawerExample" data-toggle="drawer" aria-foldedopen="false" aria-controls="drawerExample" class="btn btn-primary btn-sm">Menu</a>
-                </div>
-                <div class="drawer-contents">
-                    <div class="drawer-heading">
-                        <h2 class="drawer-title">Menu</h2>
-                    </div>
-                    <div class="drawer-body">
-                        <p>
-                            This is a properly padded container for content in the
-                            drawer that isn't a navigation.
-                        </p>
-                        <a href="#">A Regular Link</a>
-                    </div>
-                    <ul class="drawer-nav">
-                        <li role="presentation" class="active"><a href="/dashboard">Home</a></li>
-                        <li role="presentation"><a href="/dashboard">Profile</a></li>
-                        <li role="presentation"><a href="/dashboard">Messages</a></li>
-                    </ul>
-                    <div class="drawer-footer">
-                        <small>&copy; Caroline Amaba</small>
-                    </div>
-                </div>
-            </div></div>
-            <div class="col-10 bg-menu pt-3 ">
-                <div class="container">
-                    <!-- content as per usual -->
-                    <router-view></router-view>
-                </div>
+            <div class="drawer-body">
+              <p>
+                This is a properly padded container for content in the drawer
+                that isn't a navigation.
+              </p>
+              <a href="#">A Regular Link</a>
             </div>
-        </body>
+            <ul class="drawer-nav">
+              <li role="presentation" class="active">
+                <a href="/dashboard">Home</a>
+              </li>
+              <li role="presentation"><a href="/dashboard">Profile</a></li>
+              <li role="presentation"><a href="/dashboard">Messages</a></li>
+            </ul>
+            <div class="drawer-footer">
+              <small>&copy; Caroline Amaba</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-10 bg-menu pt-3 ">
+        <div class="container">
+          <!-- content as per usual -->
+          <router-view></router-view>
+        </div>
+      </div>
+    </body>
   </v-app>
 </template>
 
@@ -417,7 +431,7 @@ export default {
   data() {
     return {
       user: {},
-      token: "",
+      token: '',
       drawer: true,
       admin: null,
       loading: false,
@@ -425,16 +439,16 @@ export default {
   },
   methods: {
     logOut() {
-      localStorage.removeItem("cerebro-user");
-      localStorage.removeItem("cerebro-token");
-      this.$router.push("/auth/login");
+      localStorage.removeItem('cerebro-user');
+      localStorage.removeItem('cerebro-token');
+      this.$router.push('/auth/login');
     },
   },
   mounted() {
-    this.token = localStorage.getItem("cerebro-token");
-    this.user = JSON.parse(localStorage.getItem("cerebro-user"));
+    this.token = localStorage.getItem('cerebro-token');
+    this.user = JSON.parse(localStorage.getItem('cerebro-user'));
     if (!this.user || !this.token) {
-      this.$router.push("/auth/login");
+      this.$router.push('/auth/login');
     }
   },
 };

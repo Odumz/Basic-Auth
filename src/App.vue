@@ -3,19 +3,17 @@
     <img alt="Vue logo" src="./assets/logo.png" />
     <HelloWorld msg="Welcome to our Vue.js App" />
   </div> -->
-  <v-app>
-    <router-view></router-view>
-  </v-app>
+  <router-view></router-view>
 </template>
 
 <script>
 // import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
-  name: "App",
+  name: 'App',
   mounted() {
     // HelloWorld
-  }
+  },
 };
 </script>
 

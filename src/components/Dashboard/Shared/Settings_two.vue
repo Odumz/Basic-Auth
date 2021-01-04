@@ -6,48 +6,48 @@
       </b-col> -->
       <b-col class="p-5 text-primary col-md-10 col-lg-5 order-md-2 mb-4">
         <div class="text-center">
-        <b-text class="lead font-weight-bold">Subscription Plan</b-text>
+          <b-text class="lead font-weight-bold">Subscription Plan</b-text>
 
-        <div class="text-center pt-3">
-          <b-card
-            bg-variant="primary"
-            text-variant="white"
-            class="shadow-lg p-2 rounded-card"
-          >
-            <b-card-title class="title-fluid mt-3 center font-weight-bold"
-              >Classic</b-card-title
+          <div class="text-center pt-3">
+            <b-card
+              bg-variant="primary"
+              text-variant="white"
+              class="shadow-lg p-2 rounded-card"
             >
-            <b-card-subtitle class="subtitle-fluid mb-5"
-              >(Popular)</b-card-subtitle
-            >
-            <ul class="text-fluid list-unstyled my-5">
-              <li>* 2 business advisory session monthly</li>
-            <li>* 2 technology advisory session monthly</li>
-            <li>* Access to standard business software tools</li>
-            <li>* Access to 10 business courses</li>
-            <li>* Funding email notifications plus application guidance</li>
-            </ul>
-            <b-card-text
-              class="pricing-text-fluid my-3 text-white font-weight-bold h1"
-            >
-              N3,000 monthly
-            </b-card-text>
-            <b-button
-              size="md"
-              block
-              variant="light"
-              class="my-4 text-fluid text-primary font-weight-bold"
-              >Get Started</b-button
-            >
-            <b-button
-              size="md"
-              block
-              class="my-4 text-fluid text-white bg-primary font-weight-bold"
-              >Downgrade Plan</b-button
-            >
-          </b-card>
+              <b-card-title class="title-fluid mt-3 center font-weight-bold"
+                >Classic</b-card-title
+              >
+              <b-card-subtitle class="subtitle-fluid mb-5"
+                >(Popular)</b-card-subtitle
+              >
+              <ul class="text-fluid list-unstyled my-5">
+                <li>* 2 business advisory session monthly</li>
+                <li>* 2 technology advisory session monthly</li>
+                <li>* Access to standard business software tools</li>
+                <li>* Access to 10 business courses</li>
+                <li>* Funding email notifications plus application guidance</li>
+              </ul>
+              <b-card-text
+                class="pricing-text-fluid my-3 text-white font-weight-bold h1"
+              >
+                N3,000 monthly
+              </b-card-text>
+              <b-button
+                size="md"
+                block
+                variant="light"
+                class="my-4 text-fluid text-primary font-weight-bold"
+                >Get Started</b-button
+              >
+              <b-button
+                size="md"
+                block
+                class="my-4 text-fluid text-white bg-primary font-weight-bold"
+                >Downgrade Plan</b-button
+              >
+            </b-card>
           </div>
-          </div>
+        </div>
       </b-col>
       <b-col class="p-5 text-primary col-md-12 col-lg-7 order-md-1 mb-4">
         <b-text class="display-4 mb-4 font-weight-bolder">Settings</b-text>
@@ -162,27 +162,27 @@ export default {
   data() {
     return {
       form: {
-        email: "",
-        name: "",
+        email: '',
+        name: '',
         food: null,
-        checked: []
+        checked: [],
       },
       validFeedback: {
         name: `Thanks`,
-        email: `Thank you`
+        email: `Thank you`,
       },
       invalidFeedback: {
-        name: "",
-        email: ""
+        name: '',
+        email: '',
       },
       foods: [
-        { text: "Select One", value: null },
-        "Carrots",
-        "Beans",
-        "Tomatoes",
-        "Corn"
+        { text: 'Select One', value: null },
+        'Carrots',
+        'Beans',
+        'Tomatoes',
+        'Corn',
       ],
-      show: true
+      show: true,
     };
   },
   methods: {
@@ -193,8 +193,8 @@ export default {
     onReset(event) {
       event.preventDefault();
       // Reset our form values
-      this.form.email = "";
-      this.form.name = "";
+      this.form.email = '';
+      this.form.name = '';
       this.form.food = null;
       this.form.checked = [];
       // Trick to reset/clear native browser form validation state
@@ -202,8 +202,8 @@ export default {
       this.$nextTick(() => {
         this.show = true;
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

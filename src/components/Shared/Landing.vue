@@ -8,9 +8,11 @@
           img-fluid-grow
           text-variant="white"
           class="mt-3 img-gradient"
-          >
+        >
           <b-col class="centered">
-            <b-card-title class="px-4 mt-2 pb-3 letter-space font-weight-bold col-9 h1 text-break">
+            <b-card-title
+              class="px-4 mt-2 pb-3 letter-space font-weight-bold col-9 h1 text-break"
+            >
               EDC Smarter Business Program
             </b-card-title>
             <b-card-text class="col-11 text-break py-1 px-4">
@@ -78,27 +80,27 @@ export default {
   data() {
     return {
       form: {
-        email: "",
-        name: "",
+        email: '',
+        name: '',
         food: null,
-        checked: []
+        checked: [],
       },
       validFeedback: {
         name: `Thanks`,
-        email: `Thank you`
+        email: `Thank you`,
       },
       invalidFeedback: {
-        name: "",
-        email: ""
+        name: '',
+        email: '',
       },
       foods: [
-        { text: "Select One", value: null },
-        "Carrots",
-        "Beans",
-        "Tomatoes",
-        "Corn"
+        { text: 'Select One', value: null },
+        'Carrots',
+        'Beans',
+        'Tomatoes',
+        'Corn',
       ],
-      show: true
+      show: true,
     };
   },
   methods: {
@@ -109,8 +111,8 @@ export default {
     onReset(event) {
       event.preventDefault();
       // Reset our form values
-      this.form.email = "";
-      this.form.name = "";
+      this.form.email = '';
+      this.form.name = '';
       this.form.food = null;
       this.form.checked = [];
       // Trick to reset/clear native browser form validation state
@@ -118,8 +120,8 @@ export default {
       this.$nextTick(() => {
         this.show = true;
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -144,8 +146,12 @@ export default {
 }
 
 .img-gradient {
-  background-image: linear-gradient(84.81deg, #111111 0.05%, rgba(17, 17, 17, 0.55) 41.25%),
-  url('https://res.cloudinary.com/griffintech/image/upload/v1609534435/samples/people-in-a-meeting-1367274_1_jhi20n.png');
+  background-image: linear-gradient(
+      84.81deg,
+      #111111 0.05%,
+      rgba(17, 17, 17, 0.55) 41.25%
+    ),
+    url('https://res.cloudinary.com/griffintech/image/upload/v1609534435/samples/people-in-a-meeting-1367274_1_jhi20n.png');
   height: 100vh;
   background-size: cover;
 }
@@ -155,7 +161,6 @@ export default {
 }
 
 input::placeholder {
-  color: #043F6C !important;
+  color: #043f6c !important;
 }
-
 </style>
