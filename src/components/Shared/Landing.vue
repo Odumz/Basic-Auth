@@ -25,8 +25,8 @@
       <b-col cols="12" md="5" class="p-5 text-primary">
         <b-form class="pr-4">
           <div v-if="step == 1">
-            <p class="col-9 text-break h2 font-weight-bold pb-2">
-              Register
+            <p class="col-9 text-break lead font-weight-bold pb-3">
+              Enter your name and email to get started
             </p>
             <b-form-group
               id="input_business_name"
