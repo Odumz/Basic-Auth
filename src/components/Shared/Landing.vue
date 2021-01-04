@@ -275,7 +275,7 @@ export default {
     },
     submit() {
       this.clicked = true;
-      this.button_text = 'Processing..';
+      this.button_text = 'Processing...';
       const self = this;
       this.errors = false;
 
