@@ -23,52 +23,203 @@
         </b-card>
       </b-col>
       <b-col cols="12" md="5" class="p-5 text-primary">
-        <b-form @submit="onSubmit" @reset="onReset" class="pr-4">
-          <p class="col-9 text-break lead font-weight-bold pb-3">
-            Enter your name and email to get started
-          </p>
-          <b-form-group
-            id="input-group-name"
-            label-for="name"
-            :valid-feedback="validFeedback.name"
-            :invalid-feedback="invalidFeedback.name"
-            :state="state"
-            class="my-4"
-          >
-            <b-form-input
-              id="name"
-              v-model="form.name"
-              placeholder="Enter name"
-              class="bg-input"
-              required
-            ></b-form-input>
-          </b-form-group>
+        <b-form class="pr-4">
+          <div v-if="step == 1">
+            <p class="col-9 text-break h2 font-weight-bold pb-2">
+              Register
+            </p>
+            <b-form-group
+              id="input_business_name"
+              label-for="business_name"
+              :valid-feedback="validFeedback.business_name"
+              :invalid-feedback="invalidFeedback.business_name"
+              class="my-4"
+            >
+              <b-form-input
+                id="business_name"
+                v-model="data.business_name"
+                placeholder="Enter Business name"
+                class="bg-input"
+                type="text"
+                required
+              ></b-form-input>
+            </b-form-group>
 
-          <b-form-group
-            id="input-group-email"
-            label-for="email"
-            :valid-feedback="validFeedback.email"
-            :invalid-feedback="invalidFeedback.email"
-            :state="state"
-            class="my-4"
-          >
-            <b-form-input
-              id="email"
-              v-model="form.email"
-              type="email"
-              placeholder="E-mail"
-              class="bg-input"
-              required
-            ></b-form-input>
-          </b-form-group>
+            <b-form-group
+              id="input_email"
+              label-for="email"
+              :valid-feedback="validFeedback.email"
+              :invalid-feedback="invalidFeedback.email"
+              class="my-4"
+            >
+              <b-form-input
+                id="email"
+                v-model="data.email"
+                type="email"
+                placeholder="E-mail"
+                class="bg-input"
+                required
+              ></b-form-input>
+            </b-form-group>
 
-          <b-button
-            class="bg-primary mt-5 font-weight-bold"
-            size="lg"
-            @click.prevent="submit"
-            block
-            >Get Started</b-button
-          >
+            <b-button
+              class="bg-primary mt-4 font-weight-bold"
+              size="lg"
+              type="submit"
+              @click.prevent="navigate('email')"
+              block
+              >{{ button_text }}</b-button
+            >
+          </div>
+
+          <div v-if="step == 2">
+            <p class="lead font-weight-bold pb-2">
+              Welcome<span class="font-bold"> {{ data.business_name }}</span
+              >! 😃
+              <br />
+              <span class="h6">
+                We’ll need some information to setup your account.
+              </span>
+            </p>
+            <b-form-group
+              id="input_first_name"
+              label-for="first_name"
+              :valid-feedback="validFeedback.first_name"
+              :invalid-feedback="invalidFeedback.first_name"
+              class="my-4"
+            >
+              <b-form-input
+                id="first_name"
+                v-model="data.first_name"
+                placeholder="Enter first name"
+                class="bg-input"
+                required
+              ></b-form-input>
+            </b-form-group>
+
+            <b-form-group
+              id="input_last_name"
+              label-for="last_name"
+              :valid-feedback="validFeedback.last_name"
+              :invalid-feedback="invalidFeedback.last_name"
+              class="my-4"
+            >
+              <b-form-input
+                id="last_name"
+                v-model="data.last_name"
+                type="last_name"
+                placeholder="Enter last name"
+                class="bg-input"
+                required
+              ></b-form-input>
+            </b-form-group>
+
+            <b-form-group
+              id="input_phone"
+              label-for="phone"
+              :valid-feedback="validFeedback.phone"
+              :invalid-feedback="invalidFeedback.phone"
+              class="my-4"
+            >
+              <b-form-input
+                id="phone"
+                v-model="data.phone"
+                type="phone"
+                placeholder="Enter phone"
+                class="bg-input"
+                required
+              ></b-form-input>
+            </b-form-group>
+
+            <main class="flex d-flex justify-content-between my-2">
+              <b-button
+                class="bg-white mt-4 text-primary font-weight-bold ml-2"
+                size="md"
+                @click.prevent="step = step - 1"
+                >Previous</b-button
+              >
+              <b-button
+                class="bg-primary mt-4 font-weight-bold mr-2"
+                size="md"
+                @click.prevent="navigate('email')"
+                >Next</b-button
+              >
+            </main>
+          </div>
+
+          <div v-if="step == 3">
+            <p class="lead font-weight-bold pb-2">
+              Thanks<span class="font-bold">
+                {{ data.first_name }} {{ data.last_name }}</span
+              >! 😃
+              <br />
+              <span class="h6">
+                Now let's secure your account.
+              </span>
+            </p>
+            <b-form-group
+              id="input_password"
+              label-for="password"
+              :valid-feedback="validFeedback.password"
+              :invalid-feedback="invalidFeedback.password"
+              class="my-4"
+            >
+              <b-form-input
+                id="password"
+                v-model="data.password"
+                type="password"
+                placeholder="Enter password"
+                class="bg-input"
+                required
+              ></b-form-input>
+            </b-form-group>
+
+            <b-form-group
+              id="input_confirm_password"
+              label-for="confirm_password"
+              :valid-feedback="validFeedback.confirm_password"
+              :invalid-feedback="invalidFeedback.confirm_password"
+              class="my-4"
+            >
+              <b-form-input
+                id="confirm_password"
+                v-model="data.confirm_password"
+                type="password"
+                placeholder="Confirm password"
+                class="bg-input"
+                required
+              ></b-form-input>
+            </b-form-group>
+
+            <main class="flex d-flex justify-content-between my-2">
+              <b-button
+                class="bg-white mt-4 text-primary font-weight-bold ml-2"
+                size="md"
+                @click.prevent="step = step - 1"
+                >Previous</b-button
+              >
+              <!-- <b-button
+                  v-if="click == 0"
+                  class="bg-primary mt-4 font-weight-bold mr-2"
+                  size="md"
+                  @click.prevent="submit"
+                  >{{ button_text }}</b-button
+                > -->
+              <b-button
+                class="bg-primary mt-4 font-weight-bold mr-2"
+                size="md"
+                @click.prevent="submit"
+                :disabled="clicked"
+                ><span
+                  v-if="clicked"
+                  class="spinner-grow spinner-grow-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                {{ button_text }}</b-button
+              >
+            </main>
+          </div>
         </b-form>
       </b-col>
     </b-row>
@@ -79,6 +230,13 @@
 export default {
   data() {
     return {
+      step: 1,
+      clicked: false,
+      key: '',
+      user: {},
+      data: {},
+      errors: {},
+      button_text: 'Get Started',
       form: {
         email: '',
         name: '',
@@ -104,22 +262,52 @@ export default {
     };
   },
   methods: {
-    onSubmit(event) {
-      event.preventDefault();
-      alert(JSON.stringify(this.form));
+    navigate(key) {
+      this.errors = {};
+      if (!this.data[key]) {
+        this.errors[key] = true;
+        return;
+      }
+      this.step = ++this.step;
+      if (this.step === 3) {
+        this.button_text = 'Submit';
+      }
     },
-    onReset(event) {
-      event.preventDefault();
-      // Reset our form values
-      this.form.email = '';
-      this.form.name = '';
-      this.form.food = null;
-      this.form.checked = [];
-      // Trick to reset/clear native browser form validation state
-      this.show = false;
-      this.$nextTick(() => {
-        this.show = true;
-      });
+    submit() {
+      this.clicked = true;
+      this.button_text = 'Processing..';
+      const self = this;
+      this.errors = false;
+
+      if (this.errors) {
+        self.button_text = 'Submit';
+        setTimeout(function() {
+          self.$toasted
+            .error('Account with email exists', {
+              theme: 'bubble',
+              position: 'top-center',
+              duration: 5000,
+            })
+            .goAway(2500);
+        }, 2500);
+        setTimeout(function() {
+          self.clicked = false;
+        }, 3500);
+      } else {
+        setTimeout(function() {
+          self.$toasted
+            .success('Account successfully created', {
+              theme: 'bubble',
+              position: 'top-center',
+              duration: 5000,
+            })
+            .goAway(2500);
+        }, 3200);
+        setTimeout(function() {
+          self.clicked = false;
+          self.$router.push('/dashboard');
+        }, 4000);
+      }
     },
   },
 };
