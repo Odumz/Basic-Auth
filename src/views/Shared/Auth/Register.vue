@@ -284,7 +284,7 @@ export default {
         this.errors = true;
         return;
       }
-      
+
       this.clicked = true;
       this.button_text = 'Processing...';
       const self = this;

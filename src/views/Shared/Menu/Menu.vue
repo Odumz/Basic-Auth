@@ -20,72 +20,78 @@
             role="tablist"
             aria-orientation="vertical"
           >
-            <a
-              class="nav-link active mt-3 mb-2"
+            <router-link
+              class="nav-link mt-3 mb-2"
               id="v-pills-home-tab"
               data-toggle="pill"
-              href="/dashboard"
+              to="/dashboard"
               role="tab"
+              variant="primary"
               aria-controls="v-pills-home"
               aria-selected="true"
             >
               <b-icon icon="house-door-fill"></b-icon>
-              <span class="px-1"> Home</span></a
+              <span class="px-1"> Home</span></router-link
             >
-            <a
+            <router-link
               class="nav-link mb-2"
               id="v-pills-profile-tab"
               data-toggle="pill"
-              href="/dashboard/settings"
+              to="/dashboard/advisory"
               role="tab"
+              variant="primary"
               aria-controls="v-pills-profile"
               aria-selected="false"
-              ><b-icon icon="display-fill" variant="primary"></b-icon>
-              <span class="px-1">Advisory</span></a
+              ><b-icon icon="display-fill"></b-icon>
+              <span class="px-1">Advisory</span></router-link
             >
-            <a
+            <router-link
               class="nav-link mb-2"
               id="v-pills-messages-tab"
               data-toggle="pill"
-              href="/dashboard/profile"
+              to="/dashboard/marketplace"
               role="tab"
+              variant="primary"
               aria-controls="v-pills-messages"
               aria-selected="false"
-              ><b-icon icon="basket-fill" variant="primary"></b-icon>
-              <span class="px-1">Marketplace</span></a
+              ><b-icon icon="basket-fill"></b-icon>
+              <span class="px-1">Marketplace</span></router-link
             >
-            <a
+            <router-link
               class="nav-link mb-2"
               id="v-pills-settings-tab"
               data-toggle="pill"
-              href="/dashboard/settings"
+              to="/dashboard/subscription"
               role="tab"
               aria-controls="v-pills-settings"
               aria-selected="false"
-              ><b-icon icon="basket-fill" variant="primary"></b-icon>
-              <span class="px-1">Subscription</span></a
+              variant="primary"
+              ><b-icon icon="basket-fill"></b-icon>
+              <span class="px-1">Subscription</span></router-link
             >
-            <a
+            <router-link
               class="nav-link mb-2"
               id="v-pills-settings-tab"
               data-toggle="pill"
-              href="/dashboard/profile"
+              to="/dashboard/inbox"
               role="tab"
+              variant="primary"
               aria-controls="v-pills-settings"
               aria-selected="false"
-              ><b-icon icon="chat-left-dots-fill" variant="primary"></b-icon>
-              <span class="px-1">Inbox</span></a
+              ><b-icon icon="chat-left-dots-fill"></b-icon>
+              <span class="px-1">Inbox</span></router-link
             >
-            <a
+            <router-link
               class="nav-link mb-2"
               id="v-pills-settings-tab"
               data-toggle="pill"
-              href="/dashboard/settings"
+              to="/dashboard/settings"
               role="tab"
+              variant="primary"
               aria-controls="v-pills-settings"
               aria-selected="false"
-              ><b-icon icon="gear-fill" variant="primary"></b-icon>
-              <span class="px-1">Settings</span></a
+              ><b-icon icon="gear-fill"></b-icon>
+              <span class="px-1">Settings</span></router-link
             >
           </div>
         </div>
@@ -220,5 +226,14 @@ main {
     url('https://res.cloudinary.com/griffintech/image/upload/v1608201552/samples/pexels-jopwell-2422280_sze4ek.jpg');
   height: 100vh;
   background-size: cover;
+}
+
+.router-link-exact-active,
+.router-link-active span {
+  background: #043f6c !important;
+  border-radius: 5px;
+  font-weight: 500;
+  /* identical to box height */
+  color: #fff;
 }
 </style>

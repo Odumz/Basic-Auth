@@ -30,38 +30,38 @@
               Log In
             </p>
             <b-form-group
-                id="input_email"
-                label-for="email"
-                :valid-feedback="validFeedback.email"
-                :invalid-feedback="invalidFeedback.email"
-                class="my-4"
-              >
-                <b-form-input
-                  id="email"
-                  v-model="data.email"
-                  type="email"
-                  placeholder="E-mail"
-                  class="bg-input"
-                  required
-                ></b-form-input>
-              </b-form-group>
+              id="input_email"
+              label-for="email"
+              :valid-feedback="validFeedback.email"
+              :invalid-feedback="invalidFeedback.email"
+              class="my-4"
+            >
+              <b-form-input
+                id="email"
+                v-model="data.email"
+                type="email"
+                placeholder="E-mail"
+                class="bg-input"
+                required
+              ></b-form-input>
+            </b-form-group>
 
-              <b-form-group
-                id="input_password"
-                label-for="password"
-                :valid-feedback="validFeedback.password"
-                :invalid-feedback="invalidFeedback.password"
-                class="my-4"
-              >
-                <b-form-input
-                  id="password"
-                  v-model="data.password"
-                  type="password"
-                  placeholder="Enter password"
-                  class="bg-input"
-                  required
-                ></b-form-input>
-              </b-form-group>
+            <b-form-group
+              id="input_password"
+              label-for="password"
+              :valid-feedback="validFeedback.password"
+              :invalid-feedback="invalidFeedback.password"
+              class="my-4"
+            >
+              <b-form-input
+                id="password"
+                v-model="data.password"
+                type="password"
+                placeholder="Enter password"
+                class="bg-input"
+                required
+              ></b-form-input>
+            </b-form-group>
 
             <b-button
               class="bg-primary mt-4 font-weight-bold"
