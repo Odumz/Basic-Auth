@@ -29,31 +29,30 @@
       <b-col class="p-5 text-primary col-md-12 col-lg-7 order-md-1 mb-4">
         <b-text class="display-4 mb-4 font-weight-bolder">Marketplace</b-text>
         <b-card
-            img-src="https://res.cloudinary.com/griffintech/image/upload/v1609534435/samples/people-in-a-meeting-1367274_1_jhi20n.png"
-            img-alt="Image"
-            img-top
-            class="rounded-card my-5 col-10 mx-auto"
-          >
-            <b-card-text>
-              <ul class="text-fluid list-unstyled my-3">
-                <li>
-                  * Get an online store to display products 
-   and services
-                </li>
-                <li>* Invoicing, sales & customer service       
-   apps</li>
-              </ul>
-            </b-card-text>
-            <!-- <template #footer>
+          img-src="https://res.cloudinary.com/griffintech/image/upload/v1609534435/samples/people-in-a-meeting-1367274_1_jhi20n.png"
+          img-alt="Image"
+          img-top
+          class="rounded-card my-5 col-10 mx-auto"
+        >
+          <b-card-text>
+            <ul class="text-fluid list-unstyled my-3">
+              <li>
+                * Get an online store to display products and services
+              </li>
+              <li>* Invoicing, sales & customer service apps</li>
+            </ul>
+          </b-card-text>
+          <!-- <template #footer>
               <small class="text-muted">Last updated 3 mins ago</small>
             </template> -->
 
-            <b-button
-              block
-              size="lg"
-              class="bg-primary my-4 text-fluid font-weight-bold"
-              >Activate Marketplace</b-button>
-          </b-card>
+          <b-button
+            block
+            size="lg"
+            class="bg-primary my-4 text-fluid font-weight-bold"
+            >Activate Marketplace</b-button
+          >
+        </b-card>
       </b-col>
     </b-row>
   </b-container-fluid>
