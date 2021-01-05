@@ -49,7 +49,6 @@
             label="Business Name"
             :valid-feedback="validFeedback.name"
             :invalid-feedback="invalidFeedback.name"
-            :state="state"
             class="my-4 font-weight-bold"
           >
             <b-form-input
@@ -67,7 +66,6 @@
             label="Description"
             :valid-feedback="validFeedback.description"
             :invalid-feedback="invalidFeedback.description"
-            :state="state"
             class="my-4 font-weight-bold"
           >
             <b-form-textarea
@@ -87,7 +85,6 @@
             label="Sector"
             :valid-feedback="validFeedback.sector"
             :invalid-feedback="invalidFeedback.sector"
-            :state="state"
             class="my-4 font-weight-bold"
           >
             <b-form-input
@@ -105,7 +102,6 @@
             label="Contact Information"
             :valid-feedback="validFeedback.contact"
             :invalid-feedback="invalidFeedback.contact"
-            :state="state"
             class="my-4 font-weight-bold"
           >
             <b-form-input
@@ -123,7 +119,6 @@
             label="Email"
             :valid-feedback="validFeedback.email"
             :invalid-feedback="invalidFeedback.email"
-            :state="state"
             class="my-4 font-weight-bold"
           >
             <b-form-input

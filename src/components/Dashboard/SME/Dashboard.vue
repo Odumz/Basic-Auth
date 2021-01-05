@@ -44,24 +44,6 @@
       <b-col class="px-5 text-primary col-12 order-md-1 mb-4">
         <b-text class="display-4 mb-4 d-block font-weight-bolder">Home</b-text
         ><br />
-
-        <b-card
-          bg-variant="primary"
-          text-variant="white"
-          class="shadow-lg p-2 rounded-card mb-4"
-        >
-          <div class="row col-12">
-            <div class="col-4">
-              <span class="display-4 font-weight-bolder">5 </span> Consultations
-              Today
-            </div>
-            <div class="col-4">
-              <span class="display-4 font-weight-bolder">20 </span> Total
-              Consultations
-            </div>
-          </div>
-        </b-card>
-
         <b-text class="mb-4 font-weight-bolder"
           ><b-icon icon="bell-fill" variant="primary"></b-icon>
           <span class="ml-2">Upcoming Consultations</span>

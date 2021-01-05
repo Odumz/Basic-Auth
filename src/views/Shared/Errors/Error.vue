@@ -46,7 +46,7 @@
                 </b-card-text>
               </b-col>
             </b-card>
-            <b-card
+            <!-- <b-card
               v-if="error == 401"
               overlay
               img-alt="Card imge"
@@ -113,7 +113,7 @@
                   </main>
                 </b-card-text>
               </b-col>
-            </b-card>
+            </b-card> -->
           </b-col>
         </b-col>
       </b-row>
@@ -125,6 +125,7 @@
 export default {
   data() {
     return {
+      prevRoute: null,
       error: '404',
       error_text: {
         not_found: 'Error 404',
@@ -137,53 +138,30 @@ export default {
         unauthorized: 'You are not properly authenticated to take that action',
       },
       button_text: 'Log In',
-      form: {
-        email: '',
-        name: '',
-        food: null,
-        checked: [],
-      },
-      validFeedback: {
-        name: `Thanks`,
-        email: `Thank you`,
-      },
-      invalidFeedback: {
-        name: '',
-        email: '',
-      },
-      foods: [
-        { text: 'Select One', value: null },
-        'Carrots',
-        'Beans',
-        'Tomatoes',
-        'Corn',
-      ],
-      show: true,
+      fullpath: '',
     };
   },
+  async mounted() {
+    await this.getFullpath();
+  },
   methods: {
+    getFullpath() {
+      // console.log('fdom');
+      this.fullpath = this.$route.fullPath;
+      // console.log(this.fullpath);
+      return this.fullpath;
+    },
     goBack() {
       this.$router.go(-1);
     },
     homepage() {
-      this.$router.push('/');
-    },
-    onSubmit(event) {
-      event.preventDefault();
-      alert(JSON.stringify(this.form));
-    },
-    onReset(event) {
-      event.preventDefault();
-      // Reset our form values
-      this.form.email = '';
-      this.form.name = '';
-      this.form.food = null;
-      this.form.checked = [];
-      // Trick to reset/clear native browser form validation state
-      this.show = false;
-      this.$nextTick(() => {
-        this.show = true;
-      });
+      const path = JSON.stringify(this.fullpath);
+      const includes = path.includes('/dashboard');
+      if (includes) {
+        this.$router.push('/dashboard');
+      } else {
+        this.$router.push('/');
+      }
     },
   },
 };

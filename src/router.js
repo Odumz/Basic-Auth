@@ -16,6 +16,10 @@ import CreateConsultant from './views/Auth/Consultants/CreateConsultant.vue';
 // component routes
 import Dashboard from './components/Dashboard/Shared/Dashboard.vue';
 import Profile from './components/Dashboard/Shared/Profile';
+import Marketplace from './components/Dashboard/SME/Marketplace';
+import Subscription from './components/Dashboard/SME/Subscription';
+
+import Advisory from './components/Dashboard/SME/Advisory';
 import Inbox from './components/Dashboard/Shared/Inbox.vue';
 import Notifications from './components/Dashboard/Shared/Notifications.vue';
 import Settings from './components/Dashboard/Shared/Settings.vue';
@@ -93,6 +97,21 @@ const routes = [
         path: '/dashboard/profile',
         component: Profile,
         name: 'temp-profile',
+      },
+      {
+        path: '/dashboard/marketplace',
+        component: Marketplace,
+        name: 'marketplace',
+      },
+      {
+        path: '/dashboard/subscription',
+        component: Subscription,
+        name: 'subscription',
+      },
+      {
+        path: '/dashboard/advisory',
+        component: Advisory,
+        name: 'advisory',
       },
       {
         path: '/dashboard/settings',
