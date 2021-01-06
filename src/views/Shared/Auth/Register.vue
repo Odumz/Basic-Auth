@@ -83,45 +83,47 @@
                   We’ll need some information to setup your account.
                 </span>
               </p>
-              <b-form-group
-                id="input_first_name"
-                label-for="first_name"
-                :valid-feedback="validFeedback.first_name"
-                :invalid-feedback="invalidFeedback.first_name"
-                class="my-4"
-              >
-                <b-form-input
-                  id="first_name"
-                  v-model="data.first_name"
-                  placeholder="Enter first name"
-                  class="bg-input"
-                  required
-                ></b-form-input>
-              </b-form-group>
+              <div class="row my-2">
+                <b-form-group
+                  id="input_first_name"
+                  label-for="first_name"
+                  :valid-feedback="validFeedback.first_name"
+                  :invalid-feedback="invalidFeedback.first_name"
+                  class="col-6"
+                >
+                  <b-form-input
+                    id="first_name"
+                    v-model="data.first_name"
+                    placeholder="Enter first name"
+                    class="bg-input"
+                    required
+                  ></b-form-input>
+                </b-form-group>
 
-              <b-form-group
-                id="input_last_name"
-                label-for="last_name"
-                :valid-feedback="validFeedback.last_name"
-                :invalid-feedback="invalidFeedback.last_name"
-                class="my-4"
-              >
-                <b-form-input
-                  id="last_name"
-                  v-model="data.last_name"
-                  type="last_name"
-                  placeholder="Enter last name"
-                  class="bg-input"
-                  required
-                ></b-form-input>
-              </b-form-group>
+                <b-form-group
+                  id="input_last_name"
+                  label-for="last_name"
+                  :valid-feedback="validFeedback.last_name"
+                  :invalid-feedback="invalidFeedback.last_name"
+                  class="col-6"
+                >
+                  <b-form-input
+                    id="last_name"
+                    v-model="data.last_name"
+                    type="last_name"
+                    placeholder="Enter last name"
+                    class="bg-input"
+                    required
+                  ></b-form-input>
+                </b-form-group>
+              </div>
 
               <b-form-group
                 id="input_phone"
                 label-for="phone"
                 :valid-feedback="validFeedback.phone"
                 :invalid-feedback="invalidFeedback.phone"
-                class="my-4"
+                class="my-2"
               >
                 <b-form-input
                   id="phone"
@@ -133,6 +135,20 @@
                 ></b-form-input>
               </b-form-group>
 
+              <b-form-group
+                id="input_category"
+                label-for="category"
+                :valid-feedback="validFeedback.category"
+                :invalid-feedback="invalidFeedback.category"
+              >
+                <b-form-select
+                  v-model="data.category"
+                  class="bg-input my-3"
+                  id="category"
+                  :options="options"
+                ></b-form-select>
+              </b-form-group>
+
               <main class="flex d-flex justify-content-between my-2">
                 <b-button
                   class="bg-white mt-4 text-primary font-weight-bold ml-2"
@@ -141,9 +157,9 @@
                   >Previous</b-button
                 >
                 <b-button
-                  class="bg-primary mt-4 font-weight-bold mr-2"
+                  class="bg-primary mt-4 px-4 font-weight-bold mr-2"
                   size="md"
-                  @click.prevent="navigate('email')"
+                  @click.prevent="navigate('category')"
                   >Next</b-button
                 >
               </main>
@@ -241,7 +257,16 @@ export default {
       clicked: false,
       key: '',
       user: {},
-      data: {},
+      data: {
+        category: null,
+      },
+      options: [
+        { value: null, text: 'Please select a category' },
+        { value: 'a', text: 'This is First option' },
+        { value: 'b', text: 'Selected Option' },
+        { value: { C: '3PO' }, text: 'This is an option with object value' },
+        { value: 'd', text: 'This one is disabled', disabled: true },
+      ],
       errors: {},
       button_text: 'Submit',
       validFeedback: {

@@ -5,7 +5,7 @@
       <div class="row flex justify-content-center pt-3">
         <div class="col-lg-2-5 col-md-3 col-sm-4 bg-white pt-5 pb-5">
           <div class="pt-1 pb-2 px-3">
-            <router-link to="/">
+            <router-link to="/dashboard">
               <img
                 src="https://res.cloudinary.com/griffintech/image/upload/v1609532960/edc-logo_kfuetw.png"
                 alt="EDC Marketplace"
@@ -34,6 +34,63 @@
               <span class="px-1"> Home</span></router-link
             >
             <router-link
+              v-if="user.type == 'admin'"
+              class="nav-link mb-2"
+              id="v-pills-home-tab"
+              data-toggle="pill"
+              to="/dashboard/users"
+              role="tab"
+              variant="primary"
+              aria-controls="v-pills-home"
+              aria-selected="true"
+            >
+              <b-icon icon="person-fill"></b-icon>
+              <span class="px-1"> Users</span></router-link
+            >
+            <router-link
+              v-if="user.type == 'admin'"
+              class="nav-link mb-2"
+              id="v-pills-home-tab"
+              data-toggle="pill"
+              to="/dashboard/sme"
+              role="tab"
+              variant="primary"
+              aria-controls="v-pills-home"
+              aria-selected="true"
+            >
+              <b-icon icon="people-fill"></b-icon>
+              <span class="px-1"> SMEs</span></router-link
+            >
+            <router-link
+              v-if="user.type == 'admin'"
+              class="nav-link mb-2"
+              id="v-pills-home-tab"
+              data-toggle="pill"
+              to="/dashboard/consultations"
+              role="tab"
+              variant="primary"
+              aria-controls="v-pills-home"
+              aria-selected="true"
+            >
+              <b-icon icon="laptop-fill"></b-icon>
+              <span class="px-1"> Consultations</span></router-link
+            >
+            <router-link
+              v-if="user.type == 'consultant'"
+              class="nav-link mb-2"
+              id="v-pills-home-tab"
+              data-toggle="pill"
+              to="/dashboard/my-consultations"
+              role="tab"
+              variant="primary"
+              aria-controls="v-pills-home"
+              aria-selected="true"
+            >
+              <b-icon icon="laptop-fill"></b-icon>
+              <span class="px-1"> My Consultations</span></router-link
+            >
+            <router-link
+              v-if="user.type == 'sme'"
               class="nav-link mb-2"
               id="v-pills-profile-tab"
               data-toggle="pill"
@@ -46,6 +103,7 @@
               <span class="px-1">Advisory</span></router-link
             >
             <router-link
+              v-if="user.type == 'sme'"
               class="nav-link mb-2"
               id="v-pills-messages-tab"
               data-toggle="pill"
@@ -58,6 +116,7 @@
               <span class="px-1">Marketplace</span></router-link
             >
             <router-link
+              v-if="user.type == 'sme'"
               class="nav-link mb-2"
               id="v-pills-settings-tab"
               data-toggle="pill"
@@ -66,7 +125,7 @@
               aria-controls="v-pills-settings"
               aria-selected="false"
               variant="primary"
-              ><b-icon icon="basket-fill"></b-icon>
+              ><b-icon icon="upc-scan"></b-icon>
               <span class="px-1">Subscription</span></router-link
             >
             <router-link
@@ -116,48 +175,18 @@ export default {
   },
   data() {
     return {
-      button_text: 'Log In',
-      form: {
-        email: '',
-        name: '',
-        food: null,
-        checked: [],
-      },
-      validFeedback: {
-        name: `Thanks`,
-        email: `Thank you`,
-      },
-      invalidFeedback: {
-        name: '',
-        email: '',
-      },
-      foods: [
-        { text: 'Select One', value: null },
-        'Carrots',
-        'Beans',
-        'Tomatoes',
-        'Corn',
-      ],
-      show: true,
+      user: {},
     };
   },
+  async mounted() {
+    await this.getUser();
+  },
   methods: {
-    onSubmit(event) {
-      event.preventDefault();
-      alert(JSON.stringify(this.form));
-    },
-    onReset(event) {
-      event.preventDefault();
-      // Reset our form values
-      this.form.email = '';
-      this.form.name = '';
-      this.form.food = null;
-      this.form.checked = [];
-      // Trick to reset/clear native browser form validation state
-      this.show = false;
-      this.$nextTick(() => {
-        this.show = true;
-      });
+    getUser() {
+      this.user = {
+        type: 'sme',
+      };
+      return this.user;
     },
   },
 };

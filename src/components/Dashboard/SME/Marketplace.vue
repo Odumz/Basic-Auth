@@ -6,8 +6,8 @@
       </b-col> -->
       <b-col class="p-5 text-primary col-md-10 col-lg-5 order-md-2 mb-4">
         <div>
-          <div class="text-center pt-3">
-            <b-card class="shadow-lg py-5 px-2 rounded-card bg-tint">
+          <div class="pt-3">
+            <b-card v-if="!data.isMarketplaceActivated" class="shadow-lg pl-4 py-5 px-2 rounded-card bg-tint">
               <div>
                 <span class="display-4 font-weight-bolder">0 </span> Products
                 Available
@@ -17,10 +17,21 @@
                 Available
               </div>
               <div class="text-left mt-5">
-                <b-text
+                <b-text class="font-weight-bold"
                   >Activate Marketplace to sync your products and
                   services</b-text
                 >
+              </div>
+            </b-card>
+            <b-card v-else
+            class="shadow-lg py-5 pl-4 px-2 rounded-card bg-tint">
+              <div>
+                <span class="display-4 font-weight-bolder">3,000 </span>
+                <p>Products Available</p>
+              </div>
+              <div>
+                <span class="display-4 font-weight-bolder">5,000 </span>
+                <p>Services Available</p>
               </div>
             </b-card>
           </div>
@@ -50,7 +61,8 @@
             block
             size="lg"
             class="bg-primary my-4 text-fluid font-weight-bold"
-            >Activate Marketplace</b-button
+            @click="activateMarketplace()"
+            >{{ button_text }}</b-button
           >
         </b-card>
       </b-col>
@@ -62,47 +74,36 @@
 export default {
   data() {
     return {
-      form: {
-        email: '',
-        name: '',
-        food: null,
-        checked: [],
+      button_text: "",
+      data: {
+        isMarketplaceActivated: false,
       },
-      validFeedback: {
-        name: `Thanks`,
-        email: `Thank you`,
-      },
-      invalidFeedback: {
-        name: '',
-        email: '',
-      },
-      foods: [
-        { text: 'Select One', value: null },
-        'Carrots',
-        'Beans',
-        'Tomatoes',
-        'Corn',
-      ],
-      show: true,
     };
   },
+  async mounted() {
+    await this.getUser();
+    await this.getBtnText();
+  },
   methods: {
-    onSubmit(event) {
-      event.preventDefault();
-      alert(JSON.stringify(this.form));
+    activateMarketplace() {
+      const data = this.data;
+      if (data.isMarketplaceActivated) {
+        this.$router.push('/dashboard');
+      } else {
+        this.$router.push('/dashboard/settings');
+      }
     },
-    onReset(event) {
-      event.preventDefault();
-      // Reset our form values
-      this.form.email = '';
-      this.form.name = '';
-      this.form.food = null;
-      this.form.checked = [];
-      // Trick to reset/clear native browser form validation state
-      this.show = false;
-      this.$nextTick(() => {
-        this.show = true;
-      });
+    getUser() {},
+    getBtnText() {
+      const data = this.data;
+      // let button_text = this.button_text;
+      if (data.isMarketplaceActivated) {
+        this.button_text = "Launch Marketplace"
+        return this.button_text;
+      } else {
+        this.button_text = "Activate Marketplace"
+        return this.button_text;
+      }
     },
   },
 };

@@ -42,13 +42,14 @@
         </b-card>
       </b-col> -->
       <b-col class="px-5 text-primary col-12 order-md-1 mb-4">
-        <b-text class="display-4 mb-4 d-block font-weight-bolder">Home</b-text
+        <b-text class="display-4 mb-4 d-block font-weight-bolder">Home </b-text
         ><br />
 
         <b-card
           bg-variant="primary"
           text-variant="white"
           class="shadow-lg p-2 rounded-card mb-4"
+          v-if="user.type == 'consultant'"
         >
           <div class="row col-12">
             <div class="col-4">
@@ -62,142 +63,308 @@
           </div>
         </b-card>
 
-        <b-text class="mb-4 font-weight-bolder"
-          ><b-icon icon="bell-fill" variant="primary"></b-icon>
-          <span class="ml-2">Upcoming Consultations</span>
-        </b-text>
+        <div v-if="user.type == 'admin'">
+          <!-- <b-text 
+              class="mb-4 font-weight-bolder"
+              ><b-icon icon="bell-fill" variant="primary"></b-icon>
+              <span class="ml-2">Upcoming Consultants</span>
+            </b-text> -->
 
-        <b-card-group deck class="m-2 text-center text-primary">
-          <b-card class="shadow-lg p-2 rounded-card">
-            <b-card-title class="title-fluid mt-3 font-weight-bold"
-              >Marketing Consultation</b-card-title
-            >
-            <b-card-subtitle class="subtitle-fluid mb-5"
-              >(Getting Started)</b-card-subtitle
-            >
-            <b-card-text class="pricing-text-fluid my-3 text-left text-primary">
-              <p class="">Advisory Topic</p>
-              <p class="">Consultant: Bolanle Sopeju</p>
-              <p class="">
-                Description: ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua. Ut enim ad minim veniam,
-              </p>
-            </b-card-text>
-            <main class="flex d-flex justify-content-md-center my-2">
-              <b-button
-                class="bg-primary mt-4 font-weight-bold mx-3"
-                size="sm"
-                @click="goBack"
-                >More Details</b-button
+          <b-card-group deck class="m-2 text-left text-primary">
+            <b-card class="shadow-lg p-2 pl-4 rounded-card">
+              <!-- <b-card-title class="title-fluid mt-3 font-weight-bold"
+                >Marketing Consultation</b-card-title
               >
-              <b-button
-                class="bg-white mt-4 text-primary font-weight-bold mx-3 border-primary"
-                size="sm"
-                @click="homepage"
-                >Send Consultant a Message</b-button
-              >
-            </main>
-          </b-card>
+              <b-card-subtitle class="subtitle-fluid mb-5"
+                >(Getting Started)</b-card-subtitle
+              > -->
+              <!-- <b-card-text class="pricing-text-fluid my-3 text-left text-primary">
+                <p class="">Advisory Topic</p>
+                <p class="">Consultant: Bolanle Sopeju</p>
+                <p class="">
+                  Description: ipsum dolor sit amet, consectetur adipiscing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua. Ut enim ad minim veniam,
+                </p>
+              </b-card-text> -->
+              <div>
+                <span class="display-4 font-weight-bolder">2000 </span>
+                <p>Past Consultations</p>
+              </div>
+              <!-- <main class="flex d-flex justify-content-md-center my-2">
+                <b-button
+                  class="bg-primary mt-4 font-weight-bold mx-3"
+                  size="sm"
+                  @click="goBack"
+                  >More Details</b-button
+                >
+                <b-button
+                  class="bg-white mt-4 text-primary font-weight-bold mx-3 border-primary"
+                  size="sm"
+                  @click="homepage"
+                  >Send Consultant a Message</b-button
+                >
+              </main> -->
+            </b-card>
 
-          <b-card class="shadow-lg p-2 rounded-card">
-            <b-card-title class="title-fluid mt-3 font-weight-bold"
-              >Marketing Consultation</b-card-title
-            >
-            <b-card-subtitle class="subtitle-fluid mb-5"
-              >(Getting Started)</b-card-subtitle
-            >
-            <b-card-text class="pricing-text-fluid my-3 text-left text-primary">
-              <p class="">Advisory Topic</p>
-              <p class="">Consultant: Bolanle Sopeju</p>
-              <p class="">
-                Description: ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua. Ut enim ad minim veniam,
-              </p>
-            </b-card-text>
-            <main class="flex d-flex justify-content-md-center my-2">
-              <b-button
-                class="bg-primary mt-4 font-weight-bold mx-3"
-                size="sm"
-                @click="goBack"
-                >More Details</b-button
+            <b-card class="shadow-lg p-2 pl-4 rounded-card">
+              <!-- <b-card-title class="title-fluid mt-3 font-weight-bold"
+                >Marketing Consultation</b-card-title
               >
-              <b-button
-                class="bg-white mt-4 text-primary font-weight-bold mx-3 border-primary"
-                size="sm"
-                @click="homepage"
-                >Send Consultant a Message</b-button
+              <b-card-subtitle class="subtitle-fluid mb-5"
+                >(Getting Started)</b-card-subtitle
               >
-            </main>
-          </b-card>
-        </b-card-group>
+              <b-card-text class="pricing-text-fluid my-3 text-left text-primary">
+                <p class="">Advisory Topic</p>
+                <p class="">Consultant: Bolanle Sopeju</p>
+                <p class="">
+                  Description: ipsum dolor sit amet, consectetur adipiscing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua. Ut enim ad minim veniam,
+                </p>
+              </b-card-text>
+              <main class="flex d-flex justify-content-md-center my-2">
+                <b-button
+                  class="bg-primary mt-4 font-weight-bold mx-3"
+                  size="sm"
+                  @click="goBack"
+                  >More Details</b-button
+                >
+                <b-button
+                  class="bg-white mt-4 text-primary font-weight-bold mx-3 border-primary"
+                  size="sm"
+                  @click="homepage"
+                  >Send Consultant a Message</b-button
+                >
+              </main> -->
+              <div>
+                <span class="display-4 font-weight-bolder">5,000 </span>
+                <p>Total Number of SMEs</p>
+              </div>
+            </b-card>
+          </b-card-group>
 
-        <b-card-group deck class="m-2 text-center text-primary">
-          <b-card class="shadow-lg p-2 rounded-card">
-            <b-card-title class="title-fluid mt-3 font-weight-bold"
-              >Marketing Consultation</b-card-title
-            >
-            <b-card-subtitle class="subtitle-fluid mb-5"
-              >(Getting Started)</b-card-subtitle
-            >
-            <b-card-text class="pricing-text-fluid my-3 text-left text-primary">
-              <p class="">Advisory Topic</p>
-              <p class="">Consultant: Bolanle Sopeju</p>
-              <p class="">
-                Description: ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua. Ut enim ad minim veniam,
-              </p>
-            </b-card-text>
-            <main class="flex d-flex justify-content-md-center my-2">
-              <b-button
-                class="bg-primary mt-4 font-weight-bold mx-3"
-                size="sm"
-                @click="goBack"
-                >More Details</b-button
+          <b-card-group deck class="m-2 text-left text-primary">
+            <b-card class="shadow-lg p-2 pl-4 rounded-card">
+              <!-- <b-card-title class="title-fluid mt-3 font-weight-bold"
+                >Marketing Consultation</b-card-title
               >
-              <b-button
-                class="bg-white mt-4 text-primary font-weight-bold mx-3 border-primary"
-                size="sm"
-                @click="homepage"
-                >Send Consultant a Message</b-button
+              <b-card-subtitle class="subtitle-fluid mb-5"
+                >(Getting Started)</b-card-subtitle
               >
-            </main>
-          </b-card>
+              <b-card-text class="pricing-text-fluid my-3 text-left text-primary">
+                <p class="">Advisory Topic</p>
+                <p class="">Consultant: Bolanle Sopeju</p>
+                <p class="">
+                  Description: ipsum dolor sit amet, consectetur adipiscing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua. Ut enim ad minim veniam,
+                </p>
+              </b-card-text>
+              <main class="flex d-flex justify-content-md-center my-2">
+                <b-button
+                  class="bg-primary mt-4 font-weight-bold mx-3"
+                  size="sm"
+                  @click="goBack"
+                  >More Details</b-button
+                >
+                <b-button
+                  class="bg-white mt-4 text-primary font-weight-bold mx-3 border-primary"
+                  size="sm"
+                  @click="homepage"
+                  >Send Consultant a Message</b-button
+                >
+              </main> -->
+              <div>
+                <span class="display-4 font-weight-bolder">1,500 </span>
+                <p>Upcoming Consultations</p>
+              </div>
+            </b-card>
 
-          <b-card class="shadow-lg p-2 rounded-card">
-            <b-card-title class="title-fluid mt-3 font-weight-bold"
-              >Marketing Consultation</b-card-title
-            >
-            <b-card-subtitle class="subtitle-fluid mb-5"
-              >(Getting Started)</b-card-subtitle
-            >
-            <b-card-text class="pricing-text-fluid my-3 text-left text-primary">
-              <p class="">Advisory Topic</p>
-              <p class="">Consultant: Bolanle Sopeju</p>
-              <p class="">
-                Description: ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua. Ut enim ad minim veniam,
-              </p>
-            </b-card-text>
-            <main class="flex d-flex justify-content-md-center my-2">
-              <b-button
-                class="bg-primary mt-4 font-weight-bold mx-3"
-                size="sm"
-                @click="goBack"
-                >More Details</b-button
+            <b-card class="shadow-lg p-2 pl-4 rounded-card">
+              <!-- <b-card-title class="title-fluid mt-3 font-weight-bold"
+                >Marketing Consultation</b-card-title
               >
-              <b-button
-                class="bg-white mt-4 text-primary font-weight-bold mx-3 border-primary"
-                size="sm"
-                @click="homepage"
-                >Send Consultant a Message</b-button
+              <b-card-subtitle class="subtitle-fluid mb-5"
+                >(Getting Started)</b-card-subtitle
               >
-            </main>
-          </b-card>
-        </b-card-group>
+              <b-card-text class="pricing-text-fluid my-3 text-left text-primary">
+                <p class="">Advisory Topic</p>
+                <p class="">Consultant: Bolanle Sopeju</p>
+                <p class="">
+                  Description: ipsum dolor sit amet, consectetur adipiscing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua. Ut enim ad minim veniam,
+                </p>
+              </b-card-text>
+              <main class="flex d-flex justify-content-md-center my-2">
+                <b-button
+                  class="bg-primary mt-4 font-weight-bold mx-3"
+                  size="sm"
+                  @click="goBack"
+                  >More Details</b-button
+                >
+                <b-button
+                  class="bg-white mt-4 text-primary font-weight-bold mx-3 border-primary"
+                  size="sm"
+                  @click="homepage"
+                  >Send Consultant a Message</b-button
+                >
+              </main> -->
+              <div>
+                <span class="display-4 font-weight-bolder">Classic </span>
+                <p>Plan with the highest subscriptions</p>
+              </div>
+            </b-card>
+          </b-card-group>
+        </div>
+
+        <div v-else-if="user.type == 'sme' || 'consultant'">
+          <b-text class="mb-4 font-weight-bolder"
+            ><b-icon icon="bell-fill" variant="primary"></b-icon>
+            <span class="ml-2">Upcoming Consultations</span>
+          </b-text>
+
+          <b-card-group deck class="m-2 text-center text-primary">
+            <b-card class="shadow-lg p-2 rounded-card">
+              <b-card-title class="title-fluid mt-3 font-weight-bold"
+                >Marketing Consultation</b-card-title
+              >
+              <b-card-subtitle class="subtitle-fluid mb-5"
+                >(Getting Started)</b-card-subtitle
+              >
+              <b-card-text
+                class="pricing-text-fluid my-3 text-left text-primary"
+              >
+                <p class="">Advisory Topic</p>
+                <p class="">Consultant: Bolanle Sopeju</p>
+                <p class="">
+                  Description: ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua. Ut enim ad minim veniam,
+                </p>
+              </b-card-text>
+              <main class="flex d-flex justify-content-md-center my-2">
+                <b-button
+                  class="bg-primary mt-4 font-weight-bold mx-3"
+                  size="sm"
+                  @click="goBack"
+                  >More Details</b-button
+                >
+                <b-button
+                  class="bg-white mt-4 text-primary font-weight-bold mx-3 border-primary"
+                  size="sm"
+                  @click="homepage"
+                  >Send Consultant a Message</b-button
+                >
+              </main>
+            </b-card>
+
+            <b-card class="shadow-lg p-2 rounded-card">
+              <b-card-title class="title-fluid mt-3 font-weight-bold"
+                >Marketing Consultation</b-card-title
+              >
+              <b-card-subtitle class="subtitle-fluid mb-5"
+                >(Getting Started)</b-card-subtitle
+              >
+              <b-card-text
+                class="pricing-text-fluid my-3 text-left text-primary"
+              >
+                <p class="">Advisory Topic</p>
+                <p class="">Consultant: Bolanle Sopeju</p>
+                <p class="">
+                  Description: ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua. Ut enim ad minim veniam,
+                </p>
+              </b-card-text>
+              <main class="flex d-flex justify-content-md-center my-2">
+                <b-button
+                  class="bg-primary mt-4 font-weight-bold mx-3"
+                  size="sm"
+                  @click="goBack"
+                  >More Details</b-button
+                >
+                <b-button
+                  class="bg-white mt-4 text-primary font-weight-bold mx-3 border-primary"
+                  size="sm"
+                  @click="homepage"
+                  >Send Consultant a Message</b-button
+                >
+              </main>
+            </b-card>
+          </b-card-group>
+
+          <b-card-group deck class="m-2 text-center text-primary">
+            <b-card class="shadow-lg p-2 rounded-card">
+              <b-card-title class="title-fluid mt-3 font-weight-bold"
+                >Marketing Consultation</b-card-title
+              >
+              <b-card-subtitle class="subtitle-fluid mb-5"
+                >(Getting Started)</b-card-subtitle
+              >
+              <b-card-text
+                class="pricing-text-fluid my-3 text-left text-primary"
+              >
+                <p class="">Advisory Topic</p>
+                <p class="">Consultant: Bolanle Sopeju</p>
+                <p class="">
+                  Description: ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua. Ut enim ad minim veniam,
+                </p>
+              </b-card-text>
+              <main class="flex d-flex justify-content-md-center my-2">
+                <b-button
+                  class="bg-primary mt-4 font-weight-bold mx-3"
+                  size="sm"
+                  @click="goBack"
+                  >More Details</b-button
+                >
+                <b-button
+                  class="bg-white mt-4 text-primary font-weight-bold mx-3 border-primary"
+                  size="sm"
+                  @click="homepage"
+                  >Send Consultant a Message</b-button
+                >
+              </main>
+            </b-card>
+
+            <b-card class="shadow-lg p-2 rounded-card">
+              <b-card-title class="title-fluid mt-3 font-weight-bold"
+                >Marketing Consultation</b-card-title
+              >
+              <b-card-subtitle class="subtitle-fluid mb-5"
+                >(Getting Started)</b-card-subtitle
+              >
+              <b-card-text
+                class="pricing-text-fluid my-3 text-left text-primary"
+              >
+                <p class="">Advisory Topic</p>
+                <p class="">Consultant: Bolanle Sopeju</p>
+                <p class="">
+                  Description: ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua. Ut enim ad minim veniam,
+                </p>
+              </b-card-text>
+              <main class="flex d-flex justify-content-md-center my-2">
+                <b-button
+                  class="bg-primary mt-4 font-weight-bold mx-3"
+                  size="sm"
+                  @click="goBack"
+                  >More Details</b-button
+                >
+                <b-button
+                  class="bg-white mt-4 text-primary font-weight-bold mx-3 border-primary"
+                  size="sm"
+                  @click="homepage"
+                  >Send Consultant a Message</b-button
+                >
+              </main>
+            </b-card>
+          </b-card-group>
+        </div>
       </b-col>
     </b-row>
   </b-container-fluid>
@@ -207,47 +374,19 @@
 export default {
   data() {
     return {
-      form: {
-        email: '',
-        name: '',
-        food: null,
-        checked: [],
-      },
-      validFeedback: {
-        name: `Thanks`,
-        email: `Thank you`,
-      },
-      invalidFeedback: {
-        name: '',
-        email: '',
-      },
-      foods: [
-        { text: 'Select One', value: null },
-        'Carrots',
-        'Beans',
-        'Tomatoes',
-        'Corn',
-      ],
+      user: {},
       show: true,
     };
   },
+  async mounted() {
+    await this.getUser();
+  },
   methods: {
-    onSubmit(event) {
-      event.preventDefault();
-      alert(JSON.stringify(this.form));
-    },
-    onReset(event) {
-      event.preventDefault();
-      // Reset our form values
-      this.form.email = '';
-      this.form.name = '';
-      this.form.food = null;
-      this.form.checked = [];
-      // Trick to reset/clear native browser form validation state
-      this.show = false;
-      this.$nextTick(() => {
-        this.show = true;
-      });
+    getUser() {
+      this.user = {
+        type: 'sme',
+      };
+      return this.user;
     },
   },
 };
