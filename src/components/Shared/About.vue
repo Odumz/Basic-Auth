@@ -1,17 +1,17 @@
 <template>
   <main>
     <Services />
-    <Pricing />
+    <!-- <Pricing /> -->
   </main>
 </template>
 
 <script>
 import Services from '../../components/Shared/Services';
-import Pricing from '../../components/Shared/Pricing';
+// import Pricing from '../../components/Shared/Pricing';
 export default {
   components: {
     Services,
-    Pricing,
+    // Pricing,
   },
 };
 </script>

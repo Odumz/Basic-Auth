@@ -7,9 +7,9 @@
           <div class="pt-1 pb-2 px-3">
             <router-link to="/dashboard">
               <img
-                src="https://res.cloudinary.com/griffintech/image/upload/v1609532960/edc-logo_kfuetw.png"
+                src="https://res.cloudinary.com/griffintech/image/upload/v1613159634/logo_v11goz.png"
                 alt="EDC Marketplace"
-                width="65%"
+                width="45%"
                 class="mx-auto d-block"
               />
             </router-link>
@@ -29,6 +29,7 @@
               variant="primary"
               aria-controls="v-pills-home"
               aria-selected="true"
+              exact
             >
               <b-icon icon="house-door-fill"></b-icon>
               <span class="px-1"> Home</span></router-link
@@ -259,8 +260,8 @@ main {
 
 .router-link-exact-active,
 .router-link-active span {
-  background: #043f6c !important;
-  border-radius: 5px;
+  background: #00837b !important;
+  border-radius: 10px;
   font-weight: 500;
   /* identical to box height */
   color: #fff;

@@ -13,13 +13,18 @@
           >
             <b-col class="centered">
               <b-card-title
-                class="px-4 mt-2 font-weight-bold col-8 h2 text-break"
+                class="px-lg-5 mt-2 font-weight-bold col-8 text-break"
+                style="font-size: 3.5em;"
               >
-                EDC Smarter Business Program
+                Full-service design agency
               </b-card-title>
-              <b-card-text class="col-10 text-break py-1 px-4">
-                Premium SME Support featuring remotely-delivered
-                business/funding advisory, learning & technology support.
+              <b-card-text
+                class="col-10 text-break py-1 px-4"
+                style="font-size: 1.3em;"
+              >
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Adipisci eum, qui numquam molestiae optio quisquam. Lorem ipsum
+                dolorsitameteum.
               </b-card-text>
             </b-col>
           </b-card>

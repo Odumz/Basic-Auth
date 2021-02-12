@@ -9,10 +9,10 @@
     >
       <b-navbar-brand href="/">
         <img
-          src="https://res.cloudinary.com/griffintech/image/upload/v1609532960/edc-logo_kfuetw.png"
-          alt="EDC Marketplace"
-          width="85%"
-          class="ml-4"
+          src="https://res.cloudinary.com/griffintech/image/upload/v1613159632/logo_dark_a10mdv.png"
+          alt="Temp"
+          width="21%"
+          class="ml-n6"
         />
       </b-navbar-brand>
 
@@ -69,10 +69,10 @@
       toggleable="md"
       variant="white"
       type="primary"
-      class="py-2 fixed-top"
+      class="py-2 fixed-top "
       v-else
     >
-      <b-navbar-brand href="/">
+      <b-navbar-brand>
         <!-- <img
           src="https://res.cloudinary.com/griffintech/image/upload/v1609532960/edc-logo_kfuetw.png"
           alt="EDC Marketplace"
@@ -81,7 +81,9 @@
         /> -->
       </b-navbar-brand>
 
-      <b-navbar-toggle target="nav-collapse" class="mr-3"></b-navbar-toggle>
+      <b-navbar-toggle target="nav-collapse" class="mr-3">
+        <b-icon icon="border-width" variant="primary"></b-icon>
+      </b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <!-- <b-navbar-nav>
@@ -185,16 +187,25 @@ export default {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: #ffffff !important;
+  /* color: #00837b !important; */
+  color: #fff !important;
   /* color: #043F6C !important; */
 }
 
 .navbar-primary .navbar-nav .nav-link {
   /* color: #ffffff !important; */
-  color: #043f6c !important;
+  color: #00837b !important;
 }
 
 .navbar-toggler-icon {
-  color: #043f6c;
+  color: #00837b;
+}
+
+.top {
+  z-index: -1;
+}
+
+.ml-n6 {
+  margin-left: -10rem !important;
 }
 </style>

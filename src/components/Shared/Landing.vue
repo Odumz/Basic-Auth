@@ -11,13 +11,18 @@
         >
           <b-col class="centered">
             <b-card-title
-              class="px-4 mt-2 pb-3 letter-space font-weight-bold col-9 h1 text-break"
+              class="px-lg-5 mt-2 pb-3 letter-space font-weight-bold col-9 text-break"
+              style="font-size: 3.5em;"
             >
-              EDC Smarter Business Program
+              Full-service design agency
             </b-card-title>
-            <b-card-text class="col-11 text-break py-1 px-4">
-              Premium SME Support featuring remotely-delivered business/funding
-              advisory, learning & technology support.
+            <b-card-text
+              class="col-11 text-break py-1 px-4"
+              style="font-size: 1.3em;"
+            >
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci
+              eum, qui numquam molestiae optio quisquam. Lorem ipsum
+              dolorsitameteum.
             </b-card-text>
           </b-col>
         </b-card>
@@ -256,10 +261,8 @@ export default {
       },
       options: [
         { value: null, text: 'Please select a category' },
-        { value: 'a', text: 'This is First option' },
-        { value: 'b', text: 'Selected Option' },
-        { value: { C: '3PO' }, text: 'This is an option with object value' },
-        { value: 'd', text: 'This one is disabled', disabled: true },
+        { value: 'agriculture', text: 'Agriculture' },
+        { value: 'creatives', text: 'Creatives' },
       ],
       errors: {},
       button_text: 'Get Started',
@@ -366,6 +369,6 @@ export default {
 }
 
 input::placeholder {
-  color: #043f6c !important;
+  color: #00837b !important;
 }
 </style>

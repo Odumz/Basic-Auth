@@ -17,15 +17,14 @@
             class="rounded-card"
           >
             <b-card-title class="title-fluid font-weight-bold">
-              On Demand Business Advisory
+              Lorem ipsum dolor
             </b-card-title>
             <b-card-text>
               <ul class="text-fluid list-unstyled my-3">
                 <li>
-                  * Book sessions with HR, Tax, Marketing, Governance
-                  Consultants
+                  * Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </li>
-                <li>* Support with drafting plans and documentation</li>
+                <li>* Minus sapiente voluptatibus veritatis ut expedita.</li>
               </ul>
             </b-card-text>
             <!-- <template #footer>
@@ -40,14 +39,16 @@
             class="rounded-card"
           >
             <b-card-title class="title-fluid font-weight-bold">
-              Learning Academy
+              Lorem ipsum dolor
             </b-card-title>
             <b-card-text>
               <ul class="text-fluid list-unstyled my-3">
                 <li>
-                  * Access to free and paid courses
+                  * Lount debitis ducimus explicabo, minima illo dignissimos.
                 </li>
-                <li>* Custom learning paths and growth plans</li>
+                <li>
+                  * Lorror voluptate exercitationem,excepturi reprehenderit!
+                </li>
               </ul>
             </b-card-text>
             <!-- <template #footer>
@@ -62,14 +63,17 @@
             class="rounded-card"
           >
             <b-card-title class="title-fluid font-weight-bold">
-              Marketplace
+              Lorem ipsum dolor
             </b-card-title>
             <b-card-text>
               <ul class="text-fluid list-unstyled my-3">
                 <li>
-                  * Get an online store to display products and services
+                  * Iure esse inventore porro quos tenetur!
                 </li>
-                <li>* Invoicing Sales & customer service apps</li>
+                <li>
+                  * Lorem Minus ducimus tempore adipisci officia itaque atque,
+                  omnis corporis voluptatibus?
+                </li>
               </ul>
             </b-card-text>
             <!-- <template #footer>

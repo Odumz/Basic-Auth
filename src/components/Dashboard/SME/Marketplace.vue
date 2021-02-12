@@ -7,7 +7,10 @@
       <b-col class="p-5 text-primary col-md-10 col-lg-5 order-md-2 mb-4">
         <div>
           <div class="pt-3">
-            <b-card v-if="!data.isMarketplaceActivated" class="shadow-lg pl-4 py-5 px-2 rounded-card bg-tint">
+            <b-card
+              v-if="!data.isMarketplaceActivated"
+              class="shadow-lg pl-4 py-5 px-2 rounded-card bg-tint"
+            >
               <div>
                 <span class="display-4 font-weight-bolder">0 </span> Products
                 Available
@@ -23,8 +26,10 @@
                 >
               </div>
             </b-card>
-            <b-card v-else
-            class="shadow-lg py-5 pl-4 px-2 rounded-card bg-tint">
+            <b-card
+              v-else
+              class="shadow-lg py-5 pl-4 px-2 rounded-card bg-tint"
+            >
               <div>
                 <span class="display-4 font-weight-bolder">3,000 </span>
                 <p>Products Available</p>
@@ -74,7 +79,7 @@
 export default {
   data() {
     return {
-      button_text: "",
+      button_text: '',
       data: {
         isMarketplaceActivated: false,
       },
@@ -98,10 +103,10 @@ export default {
       const data = this.data;
       // let button_text = this.button_text;
       if (data.isMarketplaceActivated) {
-        this.button_text = "Launch Marketplace"
+        this.button_text = 'Launch Marketplace';
         return this.button_text;
       } else {
-        this.button_text = "Activate Marketplace"
+        this.button_text = 'Activate Marketplace';
         return this.button_text;
       }
     },
