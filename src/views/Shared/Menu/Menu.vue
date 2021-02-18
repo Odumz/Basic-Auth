@@ -1,157 +1,44 @@
 <template>
   <main>
     <Header />
-    <div class=" container-fluid bg-secondary">
+    <div class="container-fluid">
       <div class="row flex justify-content-center pt-3">
-        <div class="col-lg-2-5 col-md-3 col-sm-4 bg-white pt-5 pb-5">
+        <div
+          class="custom-nav col-lg-2-5 col-md-3 col-sm-4 bg-white pt-5 pb-5"
+          ref="nav"
+        >
           <div class="pt-1 pb-2 px-3">
-            <router-link to="/dashboard">
+            <figure @click="toggleNav()">
               <img
                 src="https://res.cloudinary.com/griffintech/image/upload/v1613159634/logo_v11goz.png"
-                alt="EDC Marketplace"
+                alt="Some finance"
                 width="45%"
                 class="mx-auto d-block"
               />
-            </router-link>
+            </figure>
           </div>
           <div
+            v-for="(route, index) in routes"
+            :key="index"
             class="nav flex-column nav-pills"
             id="v-pills-tab"
             role="tablist"
             aria-orientation="vertical"
           >
             <router-link
-              class="nav-link mt-3 mb-2"
+              v-if="user.type == route.type"
+              class="nav-link mb-2"
               id="v-pills-home-tab"
               data-toggle="pill"
-              to="/dashboard"
+              :to="route.path"
               role="tab"
               variant="primary"
               aria-controls="v-pills-home"
               aria-selected="true"
               exact
             >
-              <b-icon icon="house-door-fill"></b-icon>
-              <span class="px-1"> Home</span></router-link
-            >
-            <router-link
-              v-if="user.type == 'admin'"
-              class="nav-link mb-2"
-              id="v-pills-home-tab"
-              data-toggle="pill"
-              to="/dashboard/users"
-              role="tab"
-              variant="primary"
-              aria-controls="v-pills-home"
-              aria-selected="true"
-            >
-              <b-icon icon="person-fill"></b-icon>
-              <span class="px-1"> Users</span></router-link
-            >
-            <router-link
-              v-if="user.type == 'admin'"
-              class="nav-link mb-2"
-              id="v-pills-home-tab"
-              data-toggle="pill"
-              to="/dashboard/sme"
-              role="tab"
-              variant="primary"
-              aria-controls="v-pills-home"
-              aria-selected="true"
-            >
-              <b-icon icon="people-fill"></b-icon>
-              <span class="px-1"> SMEs</span></router-link
-            >
-            <router-link
-              v-if="user.type == 'admin'"
-              class="nav-link mb-2"
-              id="v-pills-home-tab"
-              data-toggle="pill"
-              to="/dashboard/consultations"
-              role="tab"
-              variant="primary"
-              aria-controls="v-pills-home"
-              aria-selected="true"
-            >
-              <b-icon icon="laptop-fill"></b-icon>
-              <span class="px-1"> Consultations</span></router-link
-            >
-            <router-link
-              v-if="user.type == 'consultant'"
-              class="nav-link mb-2"
-              id="v-pills-home-tab"
-              data-toggle="pill"
-              to="/dashboard/my-consultations"
-              role="tab"
-              variant="primary"
-              aria-controls="v-pills-home"
-              aria-selected="true"
-            >
-              <b-icon icon="laptop-fill"></b-icon>
-              <span class="px-1"> My Consultations</span></router-link
-            >
-            <router-link
-              v-if="user.type == 'sme'"
-              class="nav-link mb-2"
-              id="v-pills-profile-tab"
-              data-toggle="pill"
-              to="/dashboard/advisory"
-              role="tab"
-              variant="primary"
-              aria-controls="v-pills-profile"
-              aria-selected="false"
-              ><b-icon icon="display-fill"></b-icon>
-              <span class="px-1">Advisory</span></router-link
-            >
-            <router-link
-              v-if="user.type == 'sme'"
-              class="nav-link mb-2"
-              id="v-pills-messages-tab"
-              data-toggle="pill"
-              to="/dashboard/marketplace"
-              role="tab"
-              variant="primary"
-              aria-controls="v-pills-messages"
-              aria-selected="false"
-              ><b-icon icon="basket-fill"></b-icon>
-              <span class="px-1">Marketplace</span></router-link
-            >
-            <router-link
-              v-if="user.type == 'sme'"
-              class="nav-link mb-2"
-              id="v-pills-settings-tab"
-              data-toggle="pill"
-              to="/dashboard/subscription"
-              role="tab"
-              aria-controls="v-pills-settings"
-              aria-selected="false"
-              variant="primary"
-              ><b-icon icon="upc-scan"></b-icon>
-              <span class="px-1">Subscription</span></router-link
-            >
-            <router-link
-              class="nav-link mb-2"
-              id="v-pills-settings-tab"
-              data-toggle="pill"
-              to="/dashboard/inbox"
-              role="tab"
-              variant="primary"
-              aria-controls="v-pills-settings"
-              aria-selected="false"
-              ><b-icon icon="chat-left-dots-fill"></b-icon>
-              <span class="px-1">Inbox</span></router-link
-            >
-            <router-link
-              class="nav-link mb-2"
-              id="v-pills-settings-tab"
-              data-toggle="pill"
-              to="/dashboard/settings"
-              role="tab"
-              variant="primary"
-              aria-controls="v-pills-settings"
-              aria-selected="false"
-              ><b-icon icon="gear-fill"></b-icon>
-              <span class="px-1">Settings</span></router-link
+              <b-icon :icon="route.icon"></b-icon>
+              <span class="px-1"> {{ route.name }} </span></router-link
             >
           </div>
         </div>
@@ -177,6 +64,104 @@ export default {
   data() {
     return {
       user: {},
+      routes: [
+        {
+          name: 'Home',
+          path: '/dashboard',
+          icon: 'house-door-fill',
+          type: 'sme',
+        },
+        {
+          name: 'Home',
+          path: '/dashboard',
+          icon: 'house-door-fill',
+          type: 'admin',
+        },
+        {
+          name: 'Home',
+          path: '/dashboard',
+          icon: 'house-door-fill',
+          type: 'consultant',
+        },
+        {
+          name: 'Users',
+          path: '/dashboard/users',
+          icon: 'person-fill',
+          type: 'admin',
+        },
+        {
+          name: 'SMEs',
+          path: '/dashboard/sme',
+          icon: 'person-fill',
+          type: 'sme',
+        },
+        {
+          name: 'Consultations',
+          path: '/dashboard/consultations',
+          icon: 'laptop-fill',
+          type: 'admin',
+        },
+        {
+          name: 'My Consultations',
+          path: '/dashboard/my-consultations',
+          icon: 'laptop-fill',
+          type: 'consultant',
+        },
+        {
+          name: 'Advisory',
+          path: '/dashboard/advisory',
+          icon: 'display-fill',
+          type: 'sme',
+        },
+        {
+          name: 'Marketplace',
+          path: '/dashboard/marketplace',
+          icon: 'basket-fill',
+          type: 'sme',
+        },
+        {
+          name: 'Subscription',
+          path: '/dashboard/subscription',
+          icon: 'upc-scan',
+          type: 'sme',
+        },
+        {
+          name: 'Inbox',
+          path: '/dashboard/inbox',
+          icon: 'chat-left-dots-fill',
+          type: 'admin',
+        },
+        {
+          name: 'Inbox',
+          path: '/dashboard/inbox',
+          icon: 'chat-left-dots-fill',
+          type: 'sme',
+        },
+        {
+          name: 'Inbox',
+          path: '/dashboard/inbox',
+          icon: 'chat-left-dots-fill',
+          type: 'consultant',
+        },
+        {
+          name: 'Settings',
+          path: '/dashboard/settings',
+          icon: 'gear-fill',
+          type: 'admin',
+        },
+        {
+          name: 'Settings',
+          path: '/dashboard/settings',
+          icon: 'gear-fill',
+          type: 'sme',
+        },
+        {
+          name: 'Settings',
+          path: '/dashboard/settings',
+          icon: 'gear-fill',
+          type: 'consultant',
+        },
+      ],
     };
   },
   async mounted() {
@@ -185,15 +170,30 @@ export default {
   methods: {
     getUser() {
       this.user = {
-        type: 'sme',
+        type: 'consultant',
       };
       return this.user;
+    },
+    toggleNav() {
+      const nav = this.$refs.nav.classList;
+      nav.contains('active') ? nav.remove('active') : nav.add('active');
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@media screen and (max-width: 1053px) {
+  .custom-nav {
+    position: absolute;
+    left: -50px;
+    transition: 300ms ease all;
+  }
+
+  figure {
+    width: 170% !important;
+  }
+}
 @media screen and (max-height: 750px) {
   .main-body {
     min-height: calc(100vh - 5px) !important;
