@@ -260,7 +260,7 @@ main {
 
 .router-link-exact-active,
 .router-link-active span {
-  background: #00837b !important;
+  background: #6398da !important;
   border-radius: 10px;
   font-weight: 500;
   /* identical to box height */
