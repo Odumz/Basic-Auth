@@ -1,5 +1,5 @@
 <template>
-  <div class="font-sans fixed antialiased w-full bg-white z-10" id="app">
+  <div class="antialiased w-full z-10" id="app">
     <b-navbar
       toggleable="lg"
       type="dark"
@@ -7,12 +7,12 @@
       class="p-1 fixed-top"
       v-if="isLoggedIn == false"
     >
-      <b-navbar-brand href="/">
+      <b-navbar-brand href="/" class="">
         <img
-          src="https://res.cloudinary.com/griffintech/image/upload/v1613159632/logo_dark_a10mdv.png"
+          src="../../assets/logo.png"
           alt="Temp"
-          width="21%"
-          class="ml-n6"
+          width="45%"
+          class="d-flex ml-3"
         />
       </b-navbar-brand>
 
@@ -26,15 +26,15 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-navbar-nav class="mr-5">
-            <!-- <b-nav-item href="#">Notifications</b-nav-item> -->
-            <b-nav-item href="/auth/register" class="font-weight-bold"
-              >Get Started</b-nav-item
-            >
-            <b-nav-item href="/auth/login" class="font-weight-bold"
-              >Sign In</b-nav-item
-            >
-          </b-navbar-nav>
+          <!-- <b-navbar-nav class="mr-5"> -->
+          <!-- <b-nav-item href="#">Notifications</b-nav-item> -->
+          <b-nav-item href="/auth/register" class="font-weight-bold"
+            >Discover</b-nav-item
+          >
+          <b-nav-item href="/auth/login" class="font-weight-bold mr-lg-5"
+            >Sign In</b-nav-item
+          >
+          <!-- </b-navbar-nav> -->
 
           <!-- <b-nav-form>
             <b-form-input

@@ -1,6 +1,6 @@
 <template>
   <b-container-fluid class="main-body">
-    <b-row align-v="center" class="flex justify-content-center pt-5">
+    <b-row align-v="center" class="flex justify-content-center mt-n3">
       <b-col cols="12" md="7">
         <b-card
           overlay
@@ -11,13 +11,13 @@
         >
           <b-col class="centered">
             <b-card-title
-              class="px-lg-5 px-3 mt-2 pb-3 font-weight-bold text-break display-lg-1 display-md-2 display-3"
+              class="px-lg-5 px-3 mt-2 pb-3 font-weight-bold text-break display-lg-1 display-4"
             >
               We build digital experiences.
             </b-card-title>
             <b-card-text
               class="col-lg-9 text-break py-1 px-lg-5 px-3"
-              style="font-size: 1.2em;"
+              style="font-size: 1.1em;"
             >
               Having a well-planned, well-executed online strategy is the key to
               online success.
@@ -276,6 +276,7 @@ export default {
   },
   methods: {
     navigate(key) {
+      this.checkError();
       this.errors = {};
       if (!this.data[key]) {
         this.errors[key] = true;
@@ -327,6 +328,25 @@ export default {
         }, 4000);
       }
     },
+    checkError() {
+      const email_pattern = '^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$';
+      // if (this.data.password !== this.data.confirm_password) {
+      //   this.errors = true;
+      //   return;
+      // }
+
+      // if (this.data.password.length < 6) {
+      //   this.errors = true;
+      //   return;
+      // }
+
+      if (this.data.email) {
+        if (!this.data.email.match(email_pattern)) {
+          this.errors = true;
+          return;
+        }
+      }
+    },
   },
 };
 </script>
@@ -363,7 +383,7 @@ export default {
       #111111 0.05%,
       rgba(17, 17, 17, 0.55) 41.25%
     ),
-    url('https://res.cloudinary.com/griffintech/image/upload/v1609534435/samples/people-in-a-meeting-1367274_1_jhi20n.png');
+    url('../../assets/landing-hero.jpg');
   height: 100vh;
   background-size: cover;
 }
