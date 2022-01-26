@@ -11,18 +11,16 @@
         >
           <b-col class="centered">
             <b-card-title
-              class="px-lg-5 mt-2 pb-3 letter-space font-weight-bold col-9 text-break"
-              style="font-size: 3.5em;"
+              class="px-lg-5 px-3 mt-2 pb-3 font-weight-bold text-break display-lg-1 display-md-2 display-3"
             >
-              Full-service design agency
+              We build digital experiences.
             </b-card-title>
             <b-card-text
-              class="col-11 text-break py-1 px-4"
-              style="font-size: 1.3em;"
+              class="col-lg-9 text-break py-1 px-lg-5 px-3"
+              style="font-size: 1.2em;"
             >
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci
-              eum, qui numquam molestiae optio quisquam. Lorem ipsum
-              dolorsitameteum.
+              Having a well-planned, well-executed online strategy is the key to
+              online success.
             </b-card-text>
           </b-col>
         </b-card>
@@ -68,7 +66,7 @@
             </b-form-group>
 
             <b-button
-              class="bg-primary mt-4 font-weight-bold"
+              class="bg-primary btn-primary mt-4 font-weight-bold"
               size="lg"
               type="submit"
               @click.prevent="navigate('email')"
@@ -265,7 +263,7 @@ export default {
         { value: 'creatives', text: 'Creatives' },
       ],
       errors: {},
-      button_text: 'Get Started',
+      button_text: 'Discover',
       validFeedback: {
         name: `Thanks`,
         email: `Thank you`,
@@ -348,9 +346,15 @@ export default {
 
 .centered {
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 640px) {
+  .centered {
+    top: 50%;
+  }
 }
 
 .img-gradient {
@@ -369,6 +373,6 @@ export default {
 }
 
 input::placeholder {
-  color: #00837b !important;
+  color: #6398da !important;
 }
 </style>

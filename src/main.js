@@ -13,12 +13,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import '../main.css';
 
-// Add page title in route
-router.beforeEach((to, from, next) => {
-  document.title = to.meta.title;
-  next();
-});
-
 Vue.use(VueCountdownTimer);
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);

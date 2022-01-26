@@ -187,18 +187,18 @@ export default {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  /* color: #00837b !important; */
+  /* color: #6398da !important; */
   color: #fff !important;
   /* color: #043F6C !important; */
 }
 
 .navbar-primary .navbar-nav .nav-link {
   /* color: #ffffff !important; */
-  color: #00837b !important;
+  color: #6398da !important;
 }
 
 .navbar-toggler-icon {
-  color: #00837b;
+  color: #6398da;
 }
 
 .top {

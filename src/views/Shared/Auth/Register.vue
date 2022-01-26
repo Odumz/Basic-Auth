@@ -16,15 +16,14 @@
                 class="px-lg-5 mt-2 font-weight-bold col-8 text-break"
                 style="font-size: 3.5em;"
               >
-                Full-service design agency
+                We build digital experiences.
               </b-card-title>
               <b-card-text
                 class="col-10 text-break py-1 px-4"
                 style="font-size: 1.3em;"
               >
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Adipisci eum, qui numquam molestiae optio quisquam. Lorem ipsum
-                dolorsitameteum.
+                Having a well-planned, well-executed online strategy is the key
+                to online success.
               </b-card-text>
             </b-col>
           </b-card>
@@ -302,6 +301,7 @@ export default {
   },
   methods: {
     navigate(key) {
+      this.checkError();
       this.errors = {};
       if (!this.data[key]) {
         this.errors[key] = true;
@@ -350,6 +350,7 @@ export default {
         }, 4000);
       }
     },
+    checkError() {},
   },
 };
 </script>
