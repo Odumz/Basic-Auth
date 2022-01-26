@@ -28,7 +28,7 @@
       <b-col cols="12" md="5" class="p-5 text-primary">
         <b-form class="pr-4">
           <div v-if="step == 1">
-            <p class="col-9 text-break lead font-weight-bold pb-3">
+            <p class="col-lg-9 text-break lead font-weight-bold pb-3">
               Enter your name and email to get started
             </p>
             <b-form-group
@@ -66,7 +66,7 @@
             </b-form-group>
 
             <b-button
-              class="bg-primary btn-primary mt-4 font-weight-bold"
+              class="bg-primary border border-primary mt-4 font-weight-bold"
               size="lg"
               type="submit"
               @click.prevent="navigate('email')"
