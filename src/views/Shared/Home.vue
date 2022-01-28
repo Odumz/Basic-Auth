@@ -12,7 +12,9 @@ import Header from '../../components/Shared/Header';
 import Landing from '../../components/Shared/Landing';
 import About from '../../components/Shared/About';
 import Footer from '../../components/Shared/Footer';
+
 export default {
+  name: 'Home',
   components: {
     Header,
     Landing,

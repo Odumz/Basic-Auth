@@ -1,6 +1,6 @@
 <template>
   <b-container-fluid class="main-body">
-    <b-row align-v="center" class="flex justify-content-center mt-n3">
+    <b-row align-v="center" class="flex justify-content-center">
       <b-col cols="12" md="7">
         <b-card
           overlay
@@ -248,6 +248,7 @@
 
 <script>
 export default {
+  name: 'Landing',
   data() {
     return {
       step: 1,
@@ -276,60 +277,136 @@ export default {
   },
   methods: {
     navigate(key) {
-      this.checkError();
+      // console.log(key);
       this.errors = {};
       if (!this.data[key]) {
+        // console.log('error key', this.errors[key]);
         this.errors[key] = true;
         return;
       }
-      this.step = ++this.step;
-      if (this.step === 3) {
-        this.button_text = 'Submit';
+      this.checkError(key);
+      // console.log('data key', this.data[key]);
+      // console.log('in error', this.errors);
+      if (!this.errors[key]) {
+        this.step = ++this.step;
+        if (this.step === 3) {
+          this.button_text = 'Submit';
+        }
       }
+      // console.log(this.data);
+      // console.log(this.errors);
     },
-    submit() {
-      if (!this.data.password) {
-        this.errors = true;
-        return;
+    submit(key) {
+      this.checkError(key);
+
+      console.log('erroror', this.errors[key]);
+
+      if (!this.errors[key]) {
+        // this.clicked = true;
+        // this.button_text = 'Submitting...';
+        // this.register();
       }
 
       this.clicked = true;
       this.button_text = 'Processing...';
-      const self = this;
-      this.errors = false;
+      this.button_text = 'Submitting...';
+      this.button_text = 'Submitted';
+      // const self = this;
+      // this.errors = false;
 
-      if (this.errors) {
-        self.button_text = 'Submit';
-        setTimeout(function() {
-          self.$toasted
-            .error('Account with email exists', {
-              theme: 'bubble',
-              position: 'top-center',
-              duration: 5000,
-            })
-            .goAway(2500);
-        }, 2500);
-        setTimeout(function() {
-          self.clicked = false;
-        }, 3500);
-      } else {
-        setTimeout(function() {
-          self.$toasted
-            .success('Account successfully created', {
-              theme: 'bubble',
-              position: 'top-center',
-              duration: 5000,
-            })
-            .goAway(2500);
-        }, 3200);
-        setTimeout(function() {
-          self.clicked = false;
-          self.$router.push('/dashboard');
-        }, 4000);
-      }
+      // if (this.errors[key]) {
+      //   self.button_text = 'Submit';
+      //   setTimeout(function() {
+      //     self.$toasted
+      //       .error('Account with email exists', {
+      //         theme: 'bubble',
+      //         position: 'top-center',
+      //         duration: 5000,
+      //       })
+      //       .goAway(2500);
+      //   }, 2500);
+      //   setTimeout(function() {
+      //     self.clicked = false;
+      //   }, 3500);
+      // } else {
+      //   setTimeout(function() {
+      //     self.$toasted
+      //       .success('Account successfully created', {
+      //         theme: 'bubble',
+      //         position: 'top-center',
+      //         duration: 5000,
+      //       })
+      //       .goAway(2500);
+      //   }, 3200);
+      //   setTimeout(function() {
+      //     self.clicked = false;
+      //     self.$router.push('/dashboard');
+      //   }, 4000);
+      // }
     },
-    checkError() {
+    checkError(key) {
       const email_pattern = '^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$';
+      const password_pattern =
+        '^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$';
+
+      // console.log('email', this.data.email);
+      // console.log('business_name', this.data.business_name);
+
+      if (key === 'email') {
+        if (!this.data.email.match(email_pattern) || !this.data.email) {
+          this.errors[key] = true;
+          // console.log('error', this.errors);
+          return;
+        }
+        if (this.data.business_name.length < 3 || !this.data.business_name) {
+          this.errors[key] = true;
+          // console.log('error', this.errors);
+          return;
+        }
+      }
+
+      if (key === 'category') {
+        console.log(!isNaN(parseInt(this.data.phone)));
+        if (this.data.first_name.length < 3 || !this.data.first_name) {
+          this.errors[key] = true;
+          console.log('error', this.errors);
+          return;
+        }
+        if (this.data.last_name.length < 3 || !this.data.last_name) {
+          this.errors[key] = true;
+          console.log('error', this.errors);
+          return;
+        }
+        if (
+          isNaN(parseInt(this.data.phone)) ||
+          this.data.phone.toString().length <= 10 ||
+          !this.data.phone
+        ) {
+          console.log('type of', typeof this.data.phone);
+          this.errors[key] = true;
+          console.log('error', this.errors);
+          return;
+        }
+      }
+
+      if (key === 'password') {
+        if (
+          !this.data.password.match(password_pattern) ||
+          !this.data.password
+        ) {
+          this.errors[key] = true;
+          // console.log('error', this.errors);
+          return;
+        }
+        if (
+          !this.data.password !== this.data.confirm_password ||
+          !this.data.confirm_password
+        ) {
+          this.errors[key] = true;
+          // console.log('error', this.errors);
+          return;
+        }
+      }
       // if (this.data.password !== this.data.confirm_password) {
       //   this.errors = true;
       //   return;
@@ -340,12 +417,12 @@ export default {
       //   return;
       // }
 
-      if (this.data.email) {
-        if (!this.data.email.match(email_pattern)) {
-          this.errors = true;
-          return;
-        }
-      }
+      // if (this.data.email) {
+      //   if (!this.data.email.match(email_pattern)) {
+      //     this.errors = true;
+      //     return;
+      //   }
+      // }
     },
   },
 };
