@@ -46,6 +46,9 @@
                 type="text"
                 required
               ></b-form-input>
+              <p v-if="errors.business_name" class="text-secondary">
+                {{ error_msg.business_name }}
+              </p>
             </b-form-group>
 
             <b-form-group
@@ -63,6 +66,9 @@
                 class="bg-input"
                 required
               ></b-form-input>
+              <p v-if="errors.email" class="text-secondary">
+                {{ error_msg.email }}
+              </p>
             </b-form-group>
 
             <b-button
@@ -99,6 +105,9 @@
                   class="bg-input"
                   required
                 ></b-form-input>
+                <p v-if="errors.first_name" class="text-secondary">
+                  {{ error_msg.first_name }}
+                </p>
               </b-form-group>
 
               <b-form-group
@@ -116,6 +125,9 @@
                   class="bg-input"
                   required
                 ></b-form-input>
+                <p v-if="errors.last_name" class="text-secondary">
+                  {{ error_msg.last_name }}
+                </p>
               </b-form-group>
             </div>
 
@@ -134,6 +146,9 @@
                 class="bg-input"
                 required
               ></b-form-input>
+              <p v-if="errors.phone" class="text-secondary">
+                {{ error_msg.phone }}
+              </p>
             </b-form-group>
 
             <b-form-group
@@ -149,6 +164,9 @@
                 id="category"
                 :options="options"
               ></b-form-select>
+              <p v-if="errors.category" class="text-secondary">
+                {{ error_msg.category }}
+              </p>
             </b-form-group>
 
             <main class="flex d-flex justify-content-between my-2">
@@ -192,6 +210,9 @@
                 class="bg-input"
                 required
               ></b-form-input>
+              <p v-if="errors.password" class="text-secondary">
+                {{ error_msg.password }}
+              </p>
             </b-form-group>
 
             <b-form-group
@@ -209,6 +230,9 @@
                 class="bg-input"
                 required
               ></b-form-input>
+              <p v-if="errors.confirm_password" class="text-secondary">
+                {{ error_msg.confirm_password }}
+              </p>
             </b-form-group>
 
             <main class="flex d-flex justify-content-between my-2">
@@ -228,7 +252,7 @@
               <b-button
                 class="bg-primary mt-4 font-weight-bold mr-2"
                 size="md"
-                @click.prevent="submit"
+                @click.prevent="navigate('password')"
                 :disabled="clicked"
                 ><span
                   v-if="clicked"
@@ -251,10 +275,11 @@ export default {
   name: 'Landing',
   data() {
     return {
-      step: 1,
+      step: 2,
       clicked: false,
       key: '',
       user: {},
+      error_msg: {},
       data: {
         category: null,
       },
@@ -277,41 +302,106 @@ export default {
   },
   methods: {
     navigate(key) {
-      // console.log(key);
+      console.log(key);
       this.errors = {};
-      if (!this.data[key]) {
-        // console.log('error key', this.errors[key]);
-        this.errors[key] = true;
-        return;
+      if (key === 'email') {
+        if (!this.data[key]) {
+          this.errors[key] = true;
+          this.error_msg[key] = `Email is required`;
+          console.log('error key', this.errors[key]);
+          if (!this.data.business_name) {
+            this.errors.business_name = true;
+            this.error_msg.business_name = `Business name is required`;
+          }
+          // const self = this;
+          // console.log('key', key);
+          // let keyName = key.slice(0, 1).toUpperCase() + key.slice(1);
+          // console.log('keyname', keyName);
+          this.$toasted
+            .error('Please fill in all fields', {
+              theme: 'bubble',
+              position: 'top-center',
+              duration: 5000,
+            })
+            .goAway(3200);
+          return;
+        }
+      }
+      if (key === 'category') {
+        if (!this.data[key]) {
+          // console.log('error key', this.errors[key]);
+          this.errors[key] = true;
+          this.error_msg[key] = `Category is required`;
+          if (!this.data.first_name) {
+            this.errors.first_name = true;
+            this.error_msg.first_name = `First name is required`;
+          }
+          if (!this.data.last_name) {
+            this.errors.last_name = true;
+            this.error_msg.last_name = `Last name is required`;
+          }
+          if (!this.data.phone) {
+            this.errors.phone = true;
+            this.error_msg.phone = `Phone is required`;
+          }
+          // if (!this.data.first_name) {
+          //   this.errors.first_name = true;
+          //   this.error_msg.first_name = `First name is required`;
+          // }
+          // const self = this;
+          // console.log('key', key);
+          // let keyName = key.slice(0, 1).toUpperCase() + key.slice(1);
+          // console.log('keyname', keyName);
+          this.$toasted
+            .error('Please fill in all fields', {
+              theme: 'bubble',
+              position: 'top-center',
+              duration: 5000,
+            })
+            .goAway(3200);
+          return;
+        }
+      }
+      if (key === 'password') {
+        if (!this.data[key]) {
+          // console.log('error key', this.errors[key]);
+          this.errors[key] = true;
+          this.error_msg[key] = `Password is required`;
+          if (!this.data.confirm_password) {
+            this.errors.confirm_password = true;
+            this.error_msg.confirm_password = `Password confirmation is required`;
+          }
+          // const self = this;
+          // console.log('key', key);
+          // let keyName = key.slice(0, 1).toUpperCase() + key.slice(1);
+          // console.log('keyname', keyName);
+          this.$toasted
+            .error('Please fill in all fields', {
+              theme: 'bubble',
+              position: 'top-center',
+              duration: 5000,
+            })
+            .goAway(3200);
+          return;
+        }
       }
       this.checkError(key);
       // console.log('data key', this.data[key]);
-      // console.log('in error', this.errors);
+      console.log('in error', this.errors);
       if (!this.errors[key]) {
         this.step = ++this.step;
-        if (this.step === 3) {
-          this.button_text = 'Submit';
-        }
+      }
+      if (this.step === 3) {
+        this.button_text = 'Submit';
       }
       // console.log(this.data);
       // console.log(this.errors);
     },
-    submit(key) {
-      this.checkError(key);
-
-      console.log('erroror', this.errors[key]);
-
-      if (!this.errors[key]) {
-        // this.clicked = true;
-        // this.button_text = 'Submitting...';
-        // this.register();
-      }
-
+    submit() {
       this.clicked = true;
       this.button_text = 'Processing...';
-      this.button_text = 'Submitting...';
-      this.button_text = 'Submitted';
-      // const self = this;
+      this.step = 1;
+      const self = this;
       // this.errors = false;
 
       // if (this.errors[key]) {
@@ -329,19 +419,19 @@ export default {
       //     self.clicked = false;
       //   }, 3500);
       // } else {
-      //   setTimeout(function() {
-      //     self.$toasted
-      //       .success('Account successfully created', {
-      //         theme: 'bubble',
-      //         position: 'top-center',
-      //         duration: 5000,
-      //       })
-      //       .goAway(2500);
-      //   }, 3200);
-      //   setTimeout(function() {
-      //     self.clicked = false;
-      //     self.$router.push('/dashboard');
-      //   }, 4000);
+      setTimeout(function() {
+        self.$toasted
+          .success('Account successfully created', {
+            theme: 'bubble',
+            position: 'top-center',
+            duration: 5000,
+          })
+          .goAway(1200);
+      }, 1300);
+      setTimeout(function() {
+        self.clicked = false;
+        self.$router.push('/dashboard');
+      }, 1500);
       // }
     },
     checkError(key) {
@@ -353,57 +443,65 @@ export default {
       // console.log('business_name', this.data.business_name);
 
       if (key === 'email') {
+        if (this.data.business_name.length <= 3 || !this.data.business_name) {
+          this.errors.business_name = true;
+          this.error_msg.business_name = `Business name must be more than 3 characters`;
+        }
         if (!this.data.email.match(email_pattern) || !this.data.email) {
           this.errors[key] = true;
-          // console.log('error', this.errors);
-          return;
-        }
-        if (this.data.business_name.length < 3 || !this.data.business_name) {
-          this.errors[key] = true;
-          // console.log('error', this.errors);
-          return;
+          this.error_msg[
+            key
+          ] = `Email must match pattern 'brainadams@gmail.com'`;
         }
       }
 
       if (key === 'category') {
-        console.log(!isNaN(parseInt(this.data.phone)));
-        if (this.data.first_name.length < 3 || !this.data.first_name) {
-          this.errors[key] = true;
-          console.log('error', this.errors);
-          return;
+        // console.log(!isNaN(parseInt(this.data.phone)));
+        if (this.data.first_name.length <= 3 || !this.data.first_name) {
+          this.errors.first_name = true;
+          this.error_msg.first_name = `First name must be more than 3 characters`;
         }
-        if (this.data.last_name.length < 3 || !this.data.last_name) {
-          this.errors[key] = true;
-          console.log('error', this.errors);
-          return;
+        if (this.data.last_name.length <= 3 || !this.data.last_name) {
+          this.errors.last_name = true;
+          this.error_msg.last_name = `Last name must be more than 3 characters`;
         }
         if (
           isNaN(parseInt(this.data.phone)) ||
-          this.data.phone.toString().length <= 10 ||
+          this.data.phone.toString().length < 10 ||
           !this.data.phone
         ) {
-          console.log('type of', typeof this.data.phone);
-          this.errors[key] = true;
-          console.log('error', this.errors);
-          return;
+          // console.log('type of', typeof this.data.phone);
+          this.errors.phone = true;
+          this.error_msg.phone = `Phone must be more than 9 digits`;
         }
       }
 
       if (key === 'password') {
+        // console.log('I am here');
         if (
           !this.data.password.match(password_pattern) ||
           !this.data.password
         ) {
           this.errors[key] = true;
-          // console.log('error', this.errors);
-          return;
+          this.error_msg[
+            key
+          ] = `Password must be at least 8 characters, contain at least one number, one symbol, one uppercase and one lowercase letter`;
         }
         if (
-          !this.data.password !== this.data.confirm_password ||
+          this.data.password !== this.data.confirm_password ||
           !this.data.confirm_password
         ) {
-          this.errors[key] = true;
-          // console.log('error', this.errors);
+          this.errors.confirm_password = true;
+          this.error_msg.confirm_password = `Passwords must match`;
+        }
+
+        if (
+          this.data.password.match(password_pattern) &&
+          this.data.password === this.data.confirm_password
+        ) {
+          this.errors[key] = false;
+          console.log('i am now here');
+          this.submit();
           return;
         }
       }
