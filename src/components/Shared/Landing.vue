@@ -46,7 +46,7 @@
                 type="text"
                 required
               ></b-form-input>
-              <p v-if="errors.business_name" class="text-secondary">
+              <p v-if="errors.business_name" class="text-secondary small">
                 {{ error_msg.business_name }}
               </p>
             </b-form-group>
@@ -66,7 +66,7 @@
                 class="bg-input"
                 required
               ></b-form-input>
-              <p v-if="errors.email" class="text-secondary">
+              <p v-if="errors.email" class="text-secondary small">
                 {{ error_msg.email }}
               </p>
             </b-form-group>
@@ -105,7 +105,7 @@
                   class="bg-input"
                   required
                 ></b-form-input>
-                <p v-if="errors.first_name" class="text-secondary">
+                <p v-if="errors.first_name" class="text-secondary small">
                   {{ error_msg.first_name }}
                 </p>
               </b-form-group>
@@ -125,7 +125,7 @@
                   class="bg-input"
                   required
                 ></b-form-input>
-                <p v-if="errors.last_name" class="text-secondary">
+                <p v-if="errors.last_name" class="text-secondary small">
                   {{ error_msg.last_name }}
                 </p>
               </b-form-group>
@@ -146,7 +146,7 @@
                 class="bg-input"
                 required
               ></b-form-input>
-              <p v-if="errors.phone" class="text-secondary">
+              <p v-if="errors.phone" class="text-secondary small">
                 {{ error_msg.phone }}
               </p>
             </b-form-group>
@@ -164,7 +164,7 @@
                 id="category"
                 :options="options"
               ></b-form-select>
-              <p v-if="errors.category" class="text-secondary">
+              <p v-if="errors.category" class="text-secondary small">
                 {{ error_msg.category }}
               </p>
             </b-form-group>
@@ -210,7 +210,7 @@
                 class="bg-input"
                 required
               ></b-form-input>
-              <p v-if="errors.password" class="text-secondary">
+              <p v-if="errors.password" class="text-secondary small">
                 {{ error_msg.password }}
               </p>
             </b-form-group>
@@ -230,7 +230,7 @@
                 class="bg-input"
                 required
               ></b-form-input>
-              <p v-if="errors.confirm_password" class="text-secondary">
+              <p v-if="errors.confirm_password" class="text-secondary small">
                 {{ error_msg.confirm_password }}
               </p>
             </b-form-group>
@@ -264,6 +264,18 @@
               >
             </main>
           </div>
+
+          <div v-if="step == 4">
+            <p class="lead font-weight-bold pb-2">
+              Welcome,<span class="font-bold">
+                {{ data.first_name }} {{ data.last_name }}</span
+              >! 😃
+              <br />
+              <span class="h6">
+                Let's head over to your dashboard.
+              </span>
+            </p>
+          </div>
         </b-form>
       </b-col>
     </b-row>
@@ -275,7 +287,7 @@ export default {
   name: 'Landing',
   data() {
     return {
-      step: 2,
+      step: 1,
       clicked: false,
       key: '',
       user: {},
@@ -305,102 +317,171 @@ export default {
       console.log(key);
       this.errors = {};
       if (key === 'email') {
-        if (!this.data[key]) {
-          this.errors[key] = true;
-          this.error_msg[key] = `Email is required`;
-          console.log('error key', this.errors[key]);
-          if (!this.data.business_name) {
-            this.errors.business_name = true;
-            this.error_msg.business_name = `Business name is required`;
-          }
-          // const self = this;
-          // console.log('key', key);
-          // let keyName = key.slice(0, 1).toUpperCase() + key.slice(1);
-          // console.log('keyname', keyName);
+        const email_pattern =
+          '^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$';
+        if (
+          !this.data[key] ||
+          !this.data.business_name ||
+          this.data.business_name.length <= 3 ||
+          !this.data.email.match(email_pattern)
+        ) {
           this.$toasted
-            .error('Please fill in all fields', {
+            .error('Please fill in all fields with valid input', {
               theme: 'bubble',
               position: 'top-center',
               duration: 5000,
             })
             .goAway(3200);
-          return;
+
+          if (!this.data[key]) {
+            this.errors[key] = true;
+            this.error_msg[key] = 'Please enter your email';
+          } else {
+            this.error_msg[key] = '';
+          }
+          if (!this.data.business_name) {
+            this.errors[key] = true;
+            this.errors.business_name = true;
+            this.error_msg.business_name = `Business name is required`;
+          }
+          if (this.data.business_name.length <= 3) {
+            this.errors[key] = true;
+            this.errors.business_name = true;
+            this.error_msg.business_name = `Business name must be more than 3 characters`;
+          }
+          if (!this.data.email.match(email_pattern)) {
+            this.errors[key] = true;
+            this.error_msg[
+              key
+            ] = `Email must match pattern 'brainadams@gmail.com'`;
+          }
+        } else {
+          this.errors[key] = false;
+          this.errors.business_name = false;
         }
       }
       if (key === 'category') {
-        if (!this.data[key]) {
-          // console.log('error key', this.errors[key]);
-          this.errors[key] = true;
-          this.error_msg[key] = `Category is required`;
+        const phone_pattern = '^[0-9]{9,}$';
+        if (
+          !this.data[key] ||
+          !this.data.first_name ||
+          !this.data.last_name ||
+          !this.data.phone ||
+          this.data.first_name.length <= 3 ||
+          this.data.last_name.length <= 3 ||
+          !this.data.phone.match(phone_pattern)
+        ) {
+          this.$toasted
+            .error('Please fill in all fields with valid input', {
+              theme: 'bubble',
+              position: 'top-center',
+              duration: 5000,
+            })
+            .goAway(3200);
+
+          if (!this.data[key]) {
+            this.errors[key] = true;
+            this.error_msg[key] = `Category is required`;
+          } else {
+            this.error_msg[key] = '';
+          }
           if (!this.data.first_name) {
             this.errors.first_name = true;
             this.error_msg.first_name = `First name is required`;
           }
           if (!this.data.last_name) {
+            this.errors[key] = true;
             this.errors.last_name = true;
             this.error_msg.last_name = `Last name is required`;
           }
           if (!this.data.phone) {
+            this.errors[key] = true;
             this.errors.phone = true;
             this.error_msg.phone = `Phone is required`;
           }
-          // if (!this.data.first_name) {
-          //   this.errors.first_name = true;
-          //   this.error_msg.first_name = `First name is required`;
-          // }
-          // const self = this;
-          // console.log('key', key);
-          // let keyName = key.slice(0, 1).toUpperCase() + key.slice(1);
-          // console.log('keyname', keyName);
-          this.$toasted
-            .error('Please fill in all fields', {
-              theme: 'bubble',
-              position: 'top-center',
-              duration: 5000,
-            })
-            .goAway(3200);
-          return;
+          if (this.data.first_name.length <= 3) {
+            this.errors[key] = true;
+            this.errors.first_name = true;
+            this.error_msg.first_name = `First name must be more than 3 characters`;
+          }
+          if (this.data.last_name.length <= 3) {
+            this.errors[key] = true;
+            this.errors.last_name = true;
+            this.error_msg.last_name = `Last name must be more than 3 characters`;
+          }
+          if (!this.data.phone.match(phone_pattern)) {
+            this.errors[key] = true;
+            this.errors.phone = true;
+            this.error_msg.phone = `Phone must be a number and more than 9 digits`;
+          }
+        } else {
+          this.errors[key] = false;
+          this.errors.first_name = false;
+          this.errors.last_name = false;
+          this.errors.phone = false;
         }
       }
       if (key === 'password') {
-        if (!this.data[key]) {
-          // console.log('error key', this.errors[key]);
-          this.errors[key] = true;
-          this.error_msg[key] = `Password is required`;
+        const password_pattern =
+          '^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$';
+        if (
+          !this.data[key] ||
+          !this.data.password.match(password_pattern) ||
+          !this.data.confirm_password ||
+          this.data.password !== this.data.confirm_password
+        ) {
+          if (!this.data[key]) {
+            this.errors[key] = true;
+            this.error_msg[key] = `Password is required`;
+          } else {
+            this.error_msg[key] = '';
+          }
           if (!this.data.confirm_password) {
             this.errors.confirm_password = true;
+            this.errors[key] = true;
             this.error_msg.confirm_password = `Password confirmation is required`;
           }
-          // const self = this;
-          // console.log('key', key);
-          // let keyName = key.slice(0, 1).toUpperCase() + key.slice(1);
-          // console.log('keyname', keyName);
+          if (!this.data.password.match(password_pattern)) {
+            this.errors[key] = true;
+            this.error_msg[
+              key
+            ] = `Password must be at least 8 characters, contain at least one number, one symbol, one uppercase and one lowercase letter`;
+          }
+          if (this.data.password !== this.data.confirm_password) {
+            this.errors.confirm_password = true;
+            this.errors[key] = true;
+            this.error_msg.confirm_password = `Passwords must match`;
+          }
+
           this.$toasted
-            .error('Please fill in all fields', {
+            .error('Please fill in all fields correctly', {
               theme: 'bubble',
               position: 'top-center',
               duration: 5000,
             })
             .goAway(3200);
-          return;
+        } else {
+          this.errors = {};
+        }
+
+        if (
+          !this.errors.email &&
+          !this.errors.category &&
+          !this.errors.password
+        ) {
+          this.submit();
         }
       }
-      this.checkError(key);
-      // console.log('data key', this.data[key]);
-      console.log('in error', this.errors);
       if (!this.errors[key]) {
         this.step = ++this.step;
       }
       if (this.step === 3) {
         this.button_text = 'Submit';
       }
-      // console.log(this.data);
-      // console.log(this.errors);
     },
     submit() {
       this.clicked = true;
       this.button_text = 'Processing...';
-      this.step = 1;
       const self = this;
       // this.errors = false;
 
@@ -432,94 +513,6 @@ export default {
         self.clicked = false;
         self.$router.push('/dashboard');
       }, 1500);
-      // }
-    },
-    checkError(key) {
-      const email_pattern = '^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$';
-      const password_pattern =
-        '^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$';
-
-      // console.log('email', this.data.email);
-      // console.log('business_name', this.data.business_name);
-
-      if (key === 'email') {
-        if (this.data.business_name.length <= 3 || !this.data.business_name) {
-          this.errors.business_name = true;
-          this.error_msg.business_name = `Business name must be more than 3 characters`;
-        }
-        if (!this.data.email.match(email_pattern) || !this.data.email) {
-          this.errors[key] = true;
-          this.error_msg[
-            key
-          ] = `Email must match pattern 'brainadams@gmail.com'`;
-        }
-      }
-
-      if (key === 'category') {
-        // console.log(!isNaN(parseInt(this.data.phone)));
-        if (this.data.first_name.length <= 3 || !this.data.first_name) {
-          this.errors.first_name = true;
-          this.error_msg.first_name = `First name must be more than 3 characters`;
-        }
-        if (this.data.last_name.length <= 3 || !this.data.last_name) {
-          this.errors.last_name = true;
-          this.error_msg.last_name = `Last name must be more than 3 characters`;
-        }
-        if (
-          isNaN(parseInt(this.data.phone)) ||
-          this.data.phone.toString().length < 10 ||
-          !this.data.phone
-        ) {
-          // console.log('type of', typeof this.data.phone);
-          this.errors.phone = true;
-          this.error_msg.phone = `Phone must be more than 9 digits`;
-        }
-      }
-
-      if (key === 'password') {
-        // console.log('I am here');
-        if (
-          !this.data.password.match(password_pattern) ||
-          !this.data.password
-        ) {
-          this.errors[key] = true;
-          this.error_msg[
-            key
-          ] = `Password must be at least 8 characters, contain at least one number, one symbol, one uppercase and one lowercase letter`;
-        }
-        if (
-          this.data.password !== this.data.confirm_password ||
-          !this.data.confirm_password
-        ) {
-          this.errors.confirm_password = true;
-          this.error_msg.confirm_password = `Passwords must match`;
-        }
-
-        if (
-          this.data.password.match(password_pattern) &&
-          this.data.password === this.data.confirm_password
-        ) {
-          this.errors[key] = false;
-          console.log('i am now here');
-          this.submit();
-          return;
-        }
-      }
-      // if (this.data.password !== this.data.confirm_password) {
-      //   this.errors = true;
-      //   return;
-      // }
-
-      // if (this.data.password.length < 6) {
-      //   this.errors = true;
-      //   return;
-      // }
-
-      // if (this.data.email) {
-      //   if (!this.data.email.match(email_pattern)) {
-      //     this.errors = true;
-      //     return;
-      //   }
       // }
     },
   },
