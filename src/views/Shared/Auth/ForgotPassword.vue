@@ -2,8 +2,8 @@
   <main>
     <Header />
     <b-container-fluid class="main-body">
-      <b-row align-v="center" class="flex justify-content-center pt-5">
-        <b-col cols="12" md="7">
+      <b-row align-v="center" class="flex justify-content-center">
+        <b-col cols="12" lg="7">
           <b-card
             overlay
             img-alt="Card image"
@@ -11,20 +11,23 @@
             text-variant="white"
             class="mt-3 img-gradient"
           >
-            <b-col class="centered">
+            <b-col class="centered mt-10 mt-md-5 mt-lg-1">
               <b-card-title
-                class="px-4 mt-2 font-weight-bold col-8 h2 text-break"
+                class="px-lg-5 px-3 mt-2 pb-3 font-weight-bold text-break display-lg-1 display-4"
               >
-                EDC Smarter Business Program
+                We build digital experiences
               </b-card-title>
-              <b-card-text class="col-10 text-break py-1 px-4">
-                Premium SME Support featuring remotely-delivered
-                business/funding advisory, learning & technology support.
+              <b-card-text
+                class="col-lg-9 text-break py-1 px-lg-5 px-3"
+                style="font-size: 1.1em;"
+              >
+                Having a well-planned, well-executed online strategy is the key
+                to online success.
               </b-card-text>
             </b-col>
           </b-card>
         </b-col>
-        <b-col cols="12" md="5" class="p-5 text-primary">
+        <b-col cols="12" lg="5" class="p-5 text-primary">
           <b-form class="mr-4">
             <p class="lead display-5 font-weight-bold pb-2">
               Forgot Password?
@@ -34,28 +37,25 @@
               </span>
             </p>
 
-            <b-form-group
-              id="input-group-email"
-              label-for="email"
-              :valid-feedback="validFeedback.email"
-              :invalid-feedback="invalidFeedback.email"
-              class="my-4"
-            >
+            <b-form-group id="input_email" label-for="email" class="my-4">
               <b-form-input
                 id="email"
-                v-model="form.email"
+                v-model="data.email"
                 type="email"
                 placeholder="E-mail"
                 class="bg-input"
                 required
               ></b-form-input>
+              <p v-if="errors.email" class="text-secondary small">
+                {{ error_msg.email }}
+              </p>
             </b-form-group>
 
             <b-button
-              class="bg-primary mt-4 font-weight-bold"
+              class="bg-primary mt-4 font-weight-bold mr-2"
               size="lg"
-              @click.prevent="submit"
               block
+              @click.prevent="navigate('email')"
               :disabled="clicked"
               ><span
                 v-if="clicked"
@@ -75,7 +75,7 @@
 <script>
 import Header from '../../../components/Shared/Header';
 export default {
-  name: 'App',
+  name: 'ForgotPassword',
   components: {
     Header,
   },
@@ -83,68 +83,87 @@ export default {
     return {
       button_text: 'Recover Password',
       clicked: false,
-      form: {
-        email: '',
-        name: '',
-        food: null,
-        checked: [],
-      },
-      validFeedback: {
-        name: `Thanks`,
-        email: `Thank you`,
-      },
-      invalidFeedback: {
-        name: '',
-        email: '',
-      },
-      foods: [
-        { text: 'Select One', value: null },
-        'Carrots',
-        'Beans',
-        'Tomatoes',
-        'Corn',
-      ],
-      show: true,
+      error_msg: {},
+      data: {},
+      errors: {},
     };
   },
   methods: {
+    navigate(key) {
+      // console.log(key);
+      this.errors = {};
+      if (key === 'email') {
+        const email_pattern =
+          '^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$';
+        if (!this.data[key] || !this.data.email.match(email_pattern)) {
+          if (!this.data[key]) {
+            this.errors[key] = true;
+            this.error_msg[key] = 'Please enter your email';
+          } else {
+            this.error_msg[key] = '';
+          }
+          if (!this.data.email.match(email_pattern)) {
+            this.errors[key] = true;
+            this.error_msg[
+              key
+            ] = `Email must match pattern 'brainadams@gmail.com'`;
+          }
+
+          this.$toasted
+            .error('Please fill in all fields with valid input', {
+              theme: 'bubble',
+              position: 'top-center',
+              duration: 5000,
+            })
+            .goAway(3200);
+        } else {
+          this.errors = {};
+        }
+
+        if (
+          !this.errors.email &&
+          !this.errors.category &&
+          !this.errors.password
+        ) {
+          this.submit();
+        }
+      }
+    },
     submit() {
       this.clicked = true;
-      // console.log(this.button_text);
       this.button_text = 'Processing...';
-      // console.log(this.button_text);
       const self = this;
-      this.errors = false;
+      // this.errors = false;
 
-      if (this.errors) {
-        setTimeout(function() {
-          self.$toasted
-            .error('Email not found!', {
-              theme: 'bubble',
-              position: 'top-center',
-              duration: 5000,
-            })
-            .goAway(2500);
-        }, 2500);
-        setTimeout(function() {
-          self.clicked = false;
-          self.button_text = 'Recover Password';
-        }, 3000);
-      } else {
-        setTimeout(function() {
-          self.$toasted
-            .success('Reset token sent. Please check your email!', {
-              theme: 'bubble',
-              position: 'top-center',
-              duration: 5000,
-            })
-            .goAway(2500);
-        }, 3200);
-        setTimeout(function() {
-          self.clicked = false;
-          self.button_text = 'Recover Password';
-        }, 4000);
-      }
+      // if (this.errors[key]) {
+      //   self.button_text = 'Submit';
+      //   setTimeout(function() {
+      //     self.$toasted
+      //       .error('Account with email exists', {
+      //         theme: 'bubble',
+      //         position: 'top-center',
+      //         duration: 5000,
+      //       })
+      //       .goAway(2500);
+      //   }, 2500);
+      //   setTimeout(function() {
+      //     self.clicked = false;
+      //   }, 3500);
+      // } else {
+      setTimeout(function() {
+        self.$toasted
+          .success('Account successfully created', {
+            theme: 'bubble',
+            position: 'top-center',
+            duration: 5000,
+          })
+          .goAway(1200);
+      }, 1300);
+      setTimeout(function() {
+        self.clicked = false;
+        self.$router.push('/dashboard');
+      }, 1500);
+      // }
     },
   },
 };

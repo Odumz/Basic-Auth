@@ -40,11 +40,12 @@
 
 
 $ati-blue: #6398da !default;
-$ati-header: #6398da !default;
+// $ati-header: #6398da !default;
+$ati-header: #26256c !default;
 $ati-input: #e7f4fe !default;
 $ati-red: #e37373 !default;
 $ati-dark-blue: #98a3bc !default;
-// $ati-input: #aedafc !default;
+$ati-purple: #26256c !default;
 // $red: #dc3545 !default;
 // $orange: #fd7e14 !default;
 // $yellow: #ffc107 !default;
@@ -67,7 +68,7 @@ $ati-dark-blue: #98a3bc !default;
 //   $colors
 // );
 
-$primary:       $ati-blue !default;
+$primary:       $ati-purple !default;
 $input: $ati-input !default;
 $nav: $ati-header !default;
 $secondary: $ati-red !default;
