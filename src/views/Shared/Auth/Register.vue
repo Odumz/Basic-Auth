@@ -3,7 +3,7 @@
     <Header />
     <b-container-fluid class="main-body">
       <b-row align-v="center" class="flex justify-content-center">
-        <b-col cols="12" md="7">
+        <b-col cols="12" lg="7">
           <b-card
             overlay
             img-alt="Card image"
@@ -27,7 +27,7 @@
             </b-col>
           </b-card>
         </b-col>
-        <b-col cols="12" md="5" class="p-5 text-primary">
+        <b-col cols="12" lg="5" class="p-5 text-primary">
           <b-form class="pr-4">
             <div v-if="step == 1">
               <p class="col-lg-9 text-break lead font-weight-bold pb-3">
