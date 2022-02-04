@@ -89,7 +89,7 @@
         </b-card-group>
       </b-col>
     </b-row>
-    <b-row>
+    <!-- <b-row>
       <b-col class="py-2 bg-services">
         <b-card body-class="text-primary text-center">
           <b-card-text class="m-3">
@@ -97,7 +97,7 @@
           </b-card-text>
         </b-card>
       </b-col>
-    </b-row>
+    </b-row> -->
   </b-container-fluid>
 </template>
 
