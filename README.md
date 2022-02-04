@@ -1,4 +1,4 @@
-# edc-marketplace
+# basic-auth
 
 ## Project setup
 ```
