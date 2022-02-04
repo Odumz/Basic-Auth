@@ -2,53 +2,9 @@
   <main>
     <Header />
     <div class="container-fluid">
-      <div class="row flex justify-content-center pt-3">
-        <div
-          class="custom-nav col-lg-2-5 col-md-3 col-sm-4 bg-white pt-5 pb-5"
-          ref="nav"
-        >
-          <div class="pt-1 pb-2 px-3">
-            <figure @click="toggleNav()">
-              <img
-                src="https://res.cloudinary.com/griffintech/image/upload/v1613159634/logo_v11goz.png"
-                alt="Some finance"
-                width="45%"
-                class="mx-auto d-block"
-              />
-            </figure>
-          </div>
-          <div
-            v-for="(route, index) in routes"
-            :key="index"
-            class="nav flex-column nav-pills"
-            id="v-pills-tab"
-            role="tablist"
-            aria-orientation="vertical"
-          >
-            <router-link
-              v-if="user.type == route.type"
-              class="nav-link mb-2"
-              id="v-pills-home-tab"
-              data-toggle="pill"
-              :to="route.path"
-              role="tab"
-              variant="primary"
-              aria-controls="v-pills-home"
-              aria-selected="true"
-              exact
-            >
-              <b-icon :icon="route.icon"></b-icon>
-              <span class="px-1"> {{ route.name }} </span></router-link
-            >
-          </div>
-        </div>
-        <div class="col-lg-9-5 col-md-9 bg-menu pt-3 ">
-          <div
-            class="tab-content mt-5 ml-3 px-5 bg-white"
-            id="v-pills-tabContent"
-          >
-            <router-view></router-view>
-          </div>
+      <div class="row flex justify-content-center vh-100 align-items-center">
+        <div class="display-4">
+          <p>Welcome to your <span class="text-primary">dashboard!</span></p>
         </div>
       </div>
     </div>
@@ -60,124 +16,6 @@ import Header from '../../../components/Shared/Header';
 export default {
   components: {
     Header,
-  },
-  data() {
-    return {
-      user: {},
-      routes: [
-        {
-          name: 'Home',
-          path: '/dashboard',
-          icon: 'house-door-fill',
-          type: 'sme',
-        },
-        {
-          name: 'Home',
-          path: '/dashboard',
-          icon: 'house-door-fill',
-          type: 'admin',
-        },
-        {
-          name: 'Home',
-          path: '/dashboard',
-          icon: 'house-door-fill',
-          type: 'consultant',
-        },
-        {
-          name: 'Users',
-          path: '/dashboard/users',
-          icon: 'person-fill',
-          type: 'admin',
-        },
-        {
-          name: 'SMEs',
-          path: '/dashboard/sme',
-          icon: 'person-fill',
-          type: 'sme',
-        },
-        {
-          name: 'Consultations',
-          path: '/dashboard/consultations',
-          icon: 'laptop-fill',
-          type: 'admin',
-        },
-        {
-          name: 'My Consultations',
-          path: '/dashboard/my-consultations',
-          icon: 'laptop-fill',
-          type: 'consultant',
-        },
-        {
-          name: 'Advisory',
-          path: '/dashboard/advisory',
-          icon: 'display-fill',
-          type: 'sme',
-        },
-        {
-          name: 'Marketplace',
-          path: '/dashboard/marketplace',
-          icon: 'basket-fill',
-          type: 'sme',
-        },
-        {
-          name: 'Subscription',
-          path: '/dashboard/subscription',
-          icon: 'upc-scan',
-          type: 'sme',
-        },
-        {
-          name: 'Inbox',
-          path: '/dashboard/inbox',
-          icon: 'chat-left-dots-fill',
-          type: 'admin',
-        },
-        {
-          name: 'Inbox',
-          path: '/dashboard/inbox',
-          icon: 'chat-left-dots-fill',
-          type: 'sme',
-        },
-        {
-          name: 'Inbox',
-          path: '/dashboard/inbox',
-          icon: 'chat-left-dots-fill',
-          type: 'consultant',
-        },
-        {
-          name: 'Settings',
-          path: '/dashboard/settings',
-          icon: 'gear-fill',
-          type: 'admin',
-        },
-        {
-          name: 'Settings',
-          path: '/dashboard/settings',
-          icon: 'gear-fill',
-          type: 'sme',
-        },
-        {
-          name: 'Settings',
-          path: '/dashboard/settings',
-          icon: 'gear-fill',
-          type: 'consultant',
-        },
-      ],
-    };
-  },
-  async mounted() {
-    await this.getUser();
-  },
-  methods: {
-    getUser() {
-      this.user = {
-        type: 'consultant',
-      };
-      return this.user;
-    },
-    toggleNav() {
-      const nav = this.$refs.nav.classList;
-      nav.contains('active') ? nav.remove('active') : nav.add('active');
-    },
   },
 };
 </script>
@@ -206,29 +44,9 @@ main {
   overflow-x: hidden;
 }
 
-.col-lg-2-5,
-.col-lg-9-5 {
-  -ms-flex: 0 0 20.666667%;
-  flex: 0 0 20.666667%;
-  max-width: 20.666667%;
-  position: relative;
-}
-
-.col-lg-2-5 {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-.col-lg-9-5 {
-  -ms-flex: 0 0 79.333333%;
-  flex: 0 0 79.333333%;
-  max-width: 79.333333%;
-}
-
-.bg-menu {
-  background-color: #e7f4fe;
-}
+// .bg-menu {
+//   background-color: #e7f4fe;
+// }
 
 .centered {
   position: absolute;

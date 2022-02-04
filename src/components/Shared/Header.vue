@@ -67,22 +67,22 @@
     </b-navbar>
     <b-navbar
       toggleable="md"
-      variant="white"
-      type="primary"
+      variant="primary"
+      type="dark"
       class="py-2 fixed-top "
       v-else
     >
-      <b-navbar-brand>
-        <!-- <img
-          src="https://res.cloudinary.com/griffintech/image/upload/v1609532960/edc-logo_kfuetw.png"
-          alt="EDC Marketplace"
-          width="85%"
-          class="ml-4"
-        /> -->
+      <b-navbar-brand href="/" class="">
+        <img
+          src="../../assets/logo.png"
+          alt="Temp"
+          width="45%"
+          class="d-flex ml-3"
+        />
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse" class="mr-3">
-        <b-icon icon="border-width" variant="primary"></b-icon>
+        <b-icon icon="border-width" variant="white"></b-icon>
       </b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
@@ -93,13 +93,13 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-navbar-nav class="mr-5">
-            <b-nav-item href="/dashboard/notifications" class="font-weight-bold"
+          <b-navbar-nav class="mr-md-5">
+            <!-- <b-nav-item href="/dashboard/notifications" class="font-weight-bold"
               >Notifications</b-nav-item
             >
             <b-nav-item href="/dashboard/profile" class="font-weight-bold"
               >Profile</b-nav-item
-            >
+            > -->
             <b-nav-item href="/" class="font-weight-bold">Log Out</b-nav-item>
           </b-navbar-nav>
           <!-- <b-nav-form>

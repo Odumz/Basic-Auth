@@ -93,7 +93,6 @@ main {
   border: none;
 }
 
-
 input::placeholder {
   color: #043f6c !important;
 }
