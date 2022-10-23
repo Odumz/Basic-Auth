@@ -2,7 +2,7 @@
   <main>
     <Header />
     <b-container-fluid class="main-body">
-      <b-row align-v="center" class="flex justify-content-center">
+      <b-row align-v="center" class="flex mt-10 justify-content-center">
         <b-col cols="12" lg="6" class="new-height">
           <b-card
             overlay

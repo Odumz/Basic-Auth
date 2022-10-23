@@ -36,32 +36,32 @@ export default {
       {
         name: 'design',
         img:
-          'https://res.cloudinary.com/griffintech/image/upload/v1643707974/samples/l21_dmyjpt.png',
+          'https://res.cloudinary.com/odumz/image/upload/v1666515419/projects/l21_w3f061.png',
       },
       {
         name: 'apple',
         img:
-          'https://res.cloudinary.com/griffintech/image/upload/v1643707974/samples/l23_sehxsc.png',
+          'https://res.cloudinary.com/odumz/image/upload/v1666515419/projects/l23_q1xfpv.png',
       },
       {
         name: 'abstract',
         img:
-          'https://res.cloudinary.com/griffintech/image/upload/v1643707974/samples/l24_ljyjgr.png',
+          'https://res.cloudinary.com/odumz/image/upload/v1666515419/projects/l24_sng8t0.png',
       },
       {
         name: 'asome',
         img:
-          'https://res.cloudinary.com/griffintech/image/upload/v1643707974/samples/l26_tillqz.png',
+          'https://res.cloudinary.com/odumz/image/upload/v1666515419/projects/l26_uctxoo.png',
       },
       {
         name: 'artfocus',
         img:
-          'https://res.cloudinary.com/griffintech/image/upload/v1643707974/samples/l25_nulsv2.png',
+          'https://res.cloudinary.com/odumz/image/upload/v1666515419/projects/l25_nqhpw2.png',
       },
       {
         name: 'studio',
         img:
-          'https://res.cloudinary.com/griffintech/image/upload/v1643707974/samples/l22_eenwz0.png',
+          'https://res.cloudinary.com/odumz/image/upload/v1666515419/projects/l22_tyabiw.png',
       },
     ];
 
@@ -73,12 +73,12 @@ export default {
 </script>
 
 <template lang="en">
-<div class="row row-cols-lg-6 row-cols-md-3 justify-content-around align-items-center">
+<div class="row row-cols-lg-6 row-cols-md-3 row-cols-2 justify-content-around align-items-center">
     <div v-for="(brand, index) in brands" :key="index" class="col">
       <img :src="brand.img" :alt="brand.name" width="150px" class="rounded shadow-md opacity-75 hover:opacity-100 my-md-5 my-3 mx-3">
     </div>
 </div>
-  
+
 </template>
 
 <style scoped></style>
